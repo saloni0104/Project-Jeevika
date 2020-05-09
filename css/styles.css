@@ -34,10 +34,6 @@
 }
 
 
-
-body {
-    font-family:'Barlow', sans-serif;
-}
 #popup{
     border-radius:10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
@@ -55,25 +51,18 @@ body {
     text-align:center;
     margin-top:50px;
 }
+
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
     outline: none;
 }
+
 .bg-white {
     box-shadow: 0 0 10px 0 rgba(0,0,0,.15);
 }
-.nav-item {
-    padding-left : 10px;
-    padding-right : 10px
-}
-.nav-link {
-    font-size : 18px
-}
-.navbar-brand {
-    font-size: 22px
-}
+
 input{
     width:60%;
     padding: 5px 20px;
@@ -107,28 +96,17 @@ input:hover{
     width:auto;
     color:white;
     font-weight:bolder;
-    padding:5px 50px;
+    padding:10px;
     border-radius:40px;
     border:2px solid peru;
     background-color: transparent;
     font-size:20px;
     cursor: pointer;
-    
 }
 
-.signup-button :hover{
-    width:auto;
-    color:white;
-    font-weight:bolder;
-    padding:5px 50px;
-    border-radius:40px;
-    border:2px solid peru;
-    background-color: peru;
-    font-size:20px;
-    cursor: pointer
+.button-container {
+    padding-top: 40px;
 }
-
-
 
 
 #error{
