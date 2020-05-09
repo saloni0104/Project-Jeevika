@@ -7,3 +7,21 @@
     text-align: center;
     padding: 50px;
 }
+
+.title{
+    color: black;
+    font-size: 60px;
+    text-align: center;
+    padding: 30px;
+    font-weight: bolder;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.description{
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    padding: 20px;
+    font-weight: bolder;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
