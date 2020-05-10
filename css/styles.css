@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
 body {
     outline : none;
     -webkit-outline : none;
@@ -69,6 +75,31 @@ body {
     margin-top:50px;
 }
 
+/*.checklist {
+    position: relative;
+    text-align: center;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #1a4d0a;
+    display: inline-block;
+    padding:30px;
+    margin-left: 100px;
+    border-radius:15px;
+    
+  }
+
+  @media only screen and (max-width: 768px) {
+    .checklist {
+        text-align: center;
+        border-style: solid;
+        border-width: 2px;
+        border-color: #1a4d0a;
+        display: inline-block;
+        border-radius:15px;
+      }
+  } */
+  
+
 input:focus,
 select:focus,
 button:focus {
@@ -93,7 +124,7 @@ input{
     box-sizing: border-box;
     cursor:pointer;
 }
-input:hover,{
+input:hover{
     box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
 }
 .login-button{
