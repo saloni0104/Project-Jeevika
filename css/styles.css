@@ -43,8 +43,10 @@ body {
     
 }
 
-.btn-outline-warning{
-    border-radius: 10%;
+.index-button{
+    width: 60%;
+    border-radius: 10px;
+
 }
 
 
