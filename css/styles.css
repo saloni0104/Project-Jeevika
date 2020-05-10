@@ -120,10 +120,18 @@ input{
     height:55px;
     text-decoration:none;
     border-radius:40px;
-    border:2px solid yellowgreen;
+    border:2px solid #e49b0f;
     box-sizing: border-box;
     cursor:pointer;
 }
+
+@media only screen and (max-width: 768px) {
+    input {
+        width:70%;
+    }
+}
+
+
 input:hover{
     box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
 }
@@ -133,14 +141,21 @@ input:hover{
     font-weight:bolder;
     padding:5px 50px;
     border-radius:40px;
-    border:2px solid #1a4d0a;
-    background-color: #1a4d0a;
+    border:2px solid #f77f00;
+    background-color: #e49b0f;
     font-size:15px;
     cursor: pointer
 }
 
 .login-signup-title{
     color: gainsboro
+}
+
+@media only screen and (max-width: 768px) {
+    .login-signup-title{
+        color: gainsboro;
+        font-size: 30px;
+    }
 }
 
 a{
