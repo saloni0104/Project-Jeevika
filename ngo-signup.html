@@ -5,21 +5,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./styles/navbar.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LogIn</title>
+    <title>SignUp</title>
 </head>
 
-<body style="background-image: url('images/');background-repeat: no-repeat;background-position: center;  background-size:cover; background-color:lightsteelblue; ">
+<body
+    style="background-image: url('./Assets/signupbg.jpeg');background-repeat: no-repeat;background-position: center;  background-size:cover; background-color:lightsteelblue; ">
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
@@ -28,34 +24,31 @@
         </div>
     </nav>
 
-    <div class="container-fluid" >
+    <div class="container-fluid">
         <div class="row" style="margin-top : 10px; margin-bottom:50px;">
 
-            <div class="col-12 col-lg-6" style="padding: 40px">
-                <div style="background: url('') center center;background-size: cover; height:100%;"></div>
-            </div>
-
             <div class="col-12 col-lg-6">
-                <div class="admin checklist">
-                    <h1>Organisation LogIn</h1>
+                <div class="admin">
+                    <h1> Organisation Sign Up</h1>
                     <div>
                         <div id="error"></div>
                     </div>
                     <div>
-                        <input id="name" placeholder="Name" type="name" name="name" required>
+                        <input id="uname" placeholder="Name" type="text">
                     </div>
                     <div>
-                        <input id="email" placeholder="Email" type="email" name="emailaddress" required>
+                        <input id="email" placeholder="Email" type="email" name="emailaddress">
                     </div>
                     <div>
-                        <input id="passwd" placeholder="Password" type="password" required>
+                        <input id="passwd" placeholder="Password" type="password">
                     </div>
                     <div style=" position:relative;">
-                        <input class="login-button" type="submit" value="LogIn" id="sub">
+                        <input class="signup-button" type="submit" value="Signup" id="sub">
                     </div>
 
                     <div style="padding-top:30px">
-                        <a href="donor-login.html" style="color:green; ;font-size:20px;"><b><u> New here? Register as an Organisation and join us!</u></b></a>
+                        <a href="ngo-login.html" style="color:green; ;font-size:20px;"><b><u>Already have an
+                                    account? LogIn!</u></b></a>
                     </div>
                 </div>
             </div>
@@ -75,6 +68,35 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+
+    <script>
+        window.onload = () => {
+
+            console.log("Hello")
+            document.getElementById("sub").addEventListener("click", () => {
+                console.log('clicked')
+                fetch('https://bankone.herokuapp.com/auth/signup', {
+                    method: 'POST',
+                    headers: {
+    'Content-Type': 'application/json;charset=utf-8'
+  },
+                    body: JSON.stringify({ name: document.getElementById("uname").value, 
+                    password: document.getElementById("passwd").value, 
+                    email: document.getElementById("email").value 
+                    })
+                }).then((res) => res.json())
+                    .then((data) => {
+                        localStorage.setItem("token", data.token);
+                        window.location.href = "otp.html";
+                        console.log(data)
+                    })
+                    .catch((err) => console.log(err))
+            })
+
+        }
+
+    </script>
 
 </body>
 

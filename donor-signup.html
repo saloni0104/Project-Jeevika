@@ -5,14 +5,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./styles/navbar.css">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LogIn</title>
+    <title>SignUp</title>
 </head>
 
-<body style="background-image: url('images/donor-login.jpg');background-repeat: no-repeat;background-position: center;  background-size:cover; background-color:lightsteelblue; ">
+<body
+    style="background-image: url('./Assets/signupbg.jpeg');background-repeat: no-repeat;background-position: center;  background-size:cover; background-color:lightsteelblue; ">
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Navbar</a>
@@ -24,34 +25,34 @@
         </div>
     </nav>
 
-    <div class="container-fluid" >
+
+    <div class="container-fluid">
         <div class="row" style="margin-top : 10px; margin-bottom:50px;">
 
-            <div class="col-12 col-lg-6" style="padding: 40px">
-                <div style="background: url('./assets/secure.svg') center center;background-size: cover; height:100%;"></div>
-            </div>
 
-            <div class="col-12  col-md-4 col-lg-6 ">
-                <div class="admin checklist">
-                    <h1 class="login-title">Donor LogIn</h1>
+            <div class="col-12 col-lg-6">
+                <div class="admin">
+                    <h1> Donor Sign Up</h1>
                     <div>
                         <div id="error"></div>
                     </div>
-                    <form>
-                        <div>
-                            <input id="email" placeholder="Email" type="email" name="emailaddress" required>
-                        </div>
-                        <div>
-                            <input id="passwd" placeholder="Password" type="password" required>
-                        </div>
-                        <div style=" position:relative;">
-                            <input class="login-button" type="submit" value="LogIn" id="sub">
-                        </div>
-                    </form>
-                    <div style="padding-top:30px">
-                        <a href="donor-signup.html" style="color:green; ;font-size:20px;"><b><u>New here? Signup as a Donor for the cause!</u></b></a>
+                    <div>
+                        <input id="uname" placeholder="Name" type="text">
                     </div>
-                    
+                    <div>
+                        <input id="email" placeholder="Email" type="email" name="emailaddress">
+                    </div>
+                    <div>
+                        <input id="passwd" placeholder="Password" type="password">
+                    </div>
+                    <div style=" position:relative;">
+                        <input class="signup-button" type="submit" value="Signup" id="sub">
+                    </div>
+
+                    <div style="padding-top:30px">
+                        <a href="donor-login.html" style="color:green; ;font-size:20px;"><b><u>Already have an
+                                    account? Login!</u></b></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -70,6 +71,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
 
 </body>
 
