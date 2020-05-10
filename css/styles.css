@@ -111,7 +111,7 @@ button:focus {
 }
 
 input{
-    width:60%;
+    width:50%;
     padding: 5px 20px;
     margin-top:50px;
     color:black;
@@ -139,10 +139,24 @@ input:hover{
     cursor: pointer
 }
 
-.login-title{
+.login-signup-title{
     color: gainsboro
 }
 
+a{
+    color:gainsboro;
+    font-size:20px;
+}
+
+a:hover{
+    color:gainsboro;
+}
+
+
+
+
+
+  
 .signup-button{
     width:auto;
     color: gainsboro;
