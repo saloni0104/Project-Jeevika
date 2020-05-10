@@ -71,7 +71,6 @@ body {
 
 input:focus,
 select:focus,
-textarea:focus,
 button:focus {
     outline: none;
 }
@@ -94,7 +93,7 @@ input{
     box-sizing: border-box;
     cursor:pointer;
 }
-input:hover{
+input:hover,{
     box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
 }
 .login-button{
@@ -105,19 +104,23 @@ input:hover{
     border-radius:40px;
     border:2px solid #1a4d0a;
     background-color: #1a4d0a;
-    font-size:20px;
+    font-size:15px;
     cursor: pointer
+}
+
+.login-title{
+    color: gainsboro
 }
 
 .signup-button{
     width:auto;
-    color:#1a4d0a;
-    font-weight:bolder;
+    color: gainsboro;
+    font-weight:bold;
     padding:10px;
     border-radius:40px;
     border:2px solid #1a4d0a;
-    background-color: transparent;
-    font-size:20px;
+    background-color: #1a4d0a;
+    font-size:15px;
     cursor: pointer;
 }
 
