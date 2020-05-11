@@ -16,14 +16,14 @@ body {
 .page-heading{
     text-align: center;
     padding:20px;
-    color:gainsboro;
+    color:whitesmoke;
     font-size: 30px;
     font-weight: bolder;
     margin-top:20px;
 }
 
 .card-text{
-    padding:10px;
+    padding:5px;
     font-size:20px;
 }
 
@@ -53,7 +53,7 @@ body {
 
 
 .tab-content{
-    padding-bottom: 20px;
+    padding-bottom: 60px;
 }
 
  .form-control {
@@ -62,12 +62,10 @@ body {
 }
 
 
- .dropdown-menu {
-     padding-top: 3px;
-     height: 4px;
+ form{
      outline: none;
  }
 
- form{
-     outline: none;
+ .dropdown-item :active{
+     background-color: gainsboro;
  }
