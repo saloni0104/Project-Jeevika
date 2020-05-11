@@ -4,7 +4,7 @@
     <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/users.css">
+    <link rel="stylesheet" href="./css/ngo.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -13,83 +13,101 @@
 
 
 
-<body style="background-image: url('');background-repeat: no-repeat;background-position: center;  background-size:cover;">
-    
+<body
+    style="background-image: url('');background-repeat: no-repeat;background-position: center;  background-size:cover;">
+
 
     <!--NAVBAR-->
 
-
-    
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="index.html">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto nav " style="padding-left:20px; margin-left:20px;">
-            <li class="nav-item " style="padding-left:20px; margin-left:20px;">
-              <a class="nav-link active" href="#peter"  role="tab" data-toggle="tab">Accept Donations<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item"style="padding-left:20px; margin-left:20px;">
-              <a class="nav-link" href="#danny" role="tab" data-toggle="tab">Help Programs</a>
-            </li>
-          </ul>
 
-          <!--PROFILE DROPDOWN-->
-          <form class="form-inline my-2 my-lg-0 ">
-            <div class="dropdown">
-                <button class="btn btn-warning my-2 my-sm-0 dropdown-toggle" id="dropdownMenuButton" style="padding-right: 20px;
-                margin-right: 100px;"
-                    type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Profile</button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" style="word-wrap: break-word" href="">View Profile</a>
-                    <a class="dropdown-item" style="word-wrap: break-word" href="">Logout</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto nav " style="padding-left:20px; margin-left:20px;">
+                <li class="nav-item " style="padding-left:20px; margin-left:20px;">
+                    <a class="nav-link active" href="#accdonations" role="tab" data-toggle="tab">Accept Donations<span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" style="padding-left:20px; margin-left:20px;">
+                    <a class="nav-link" href="#helpprg" role="tab" data-toggle="tab">Help Programs</a>
+                </li>
+            </ul>
+
+            <!--PROFILE DROPDOWN-->
+            <form class="form-inline my-2 my-lg-0 ">
+                <div class="dropdown">
+                    <button class="btn btn-warning my-2 my-sm-0 dropdown-toggle" id="dropdownMenuButton" style="padding-right: 20px;
+                margin-right: 100px;" type="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">My Profile</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" style="word-wrap: break-word" href="">View Profile</a>
+                        <a class="dropdown-item" style="word-wrap: break-word" href="">Logout</a>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
 
         </div>
-      </nav>
+    </nav>
 
-    <div class="container-fluid" >
-        <div class="row" style="margin-top : 10px; margin-bottom:50px;">
+    <div class="container">
+
+            <!--MAIN CONTENT FOR TABS-->
 
             <div class="tab-content">
+                <div role="tab-panel" class="tab-pane fade show active" id="accdonations">
 
-                <div role="tab-panel" class="tab-pane fade show active" id="peter">
-                    <h3>Peter Pan <small>Chief Epicurious Officer</small></h3>
-                    <p class="d-none d-sm-block">Our CEO, Peter, credits his hardworking East Asian immigrant
-                        parents
-                        who
-                        undertook the arduous journey to the shores of America with the intention of giving their
-                        children
-                        the best future. His mother's wizardy in the kitchen whipping up the tastiest dishes with
-                        whatever
-                        is available inexpensively at the supermarket, was his first inspiration to create the
-                        fusion
-                        cuisines for which <em>The Frying Pan</em> became well known. He brings his zeal for fusion
-                        cuisines
-                        to this restaurant, pioneering cross-cultural culinary connections.</p>
+                    <div class="page-heading col-12">
+                        Accept Donations from places around you for easy reachability and access
+                    </div>
+
+                    <div class="card">
+                        <h5 class="card-header">Item Name</h5>
+                        <div class="card-body">
+                            <p class="card-text">
+                            <div>Username</div>
+                            <div>Quantity</div>
+                            <div>Location</div>
+                            <div>Description</div>
+                            </p>
+                            <a href="#" class="btn btn-warning">Accept Donation</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h5 class="card-header">Item Name</h5>
+                        <div class="card-body">
+                            <p class="card-text">
+                            <div>Username</div>
+                            <div>Quantity</div>
+                            <div>Location</div>
+                            <div>Description</div>
+                            </p>
+                            <a href="#" class="btn btn-warning">Accept Donation</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h5 class="card-header">Item Name</h5>
+                        <div class="card-body">
+                            <p class="card-text">
+                            <div>Username</div>
+                            <div>Quantity</div>
+                            <div>Location</div>
+                            <div>Description</div>
+                            </p>
+                            <a href="#" class="btn btn-warning">Accept Donation</a>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div role="tab-panel" class="tab-pane fade" id="danny">
-                    <h3>Dhanasekaran Witherspoon <small>Chief Food Officer</small></h3>
-                    <p class="d-none d-sm-block">Our CFO, Danny, as he is affectionately referred to by his
-                        colleagues,
-                        comes from a long established family tradition in farming and produce. His experiences
-                        growing
-                        up on
-                        a farm in the Australian outback gave him great appreciation for varieties of food sources.
-                        As
-                        he
-                        puts it in his own words, <em>Everything that runs, wins, and everything that stays,
-                            pays!</em>
-                    </p>
+                <div role="tab-panel" class="tab-pane fade" id="helpprg">
+
                 </div>
             </div>
 
-        </div>
     </div>
 
 
