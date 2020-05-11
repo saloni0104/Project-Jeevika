@@ -17,7 +17,15 @@ body {
     text-align: center;
     padding:20px;
     color:whitesmoke;
-    font-size: 30px;
+    font-weight: bolder;
+    margin-top:20px;
+}
+
+
+.page2-heading{
+    text-align: center;
+    padding:10px;
+    color:whitesmoke;
     font-weight: bolder;
     margin-top:20px;
 }
@@ -54,7 +62,10 @@ body {
 
 .tab-content{
     padding-bottom: 60px;
+    
 }
+
+
 
  .form-control {
     box-shadow: none !important;
@@ -69,3 +80,73 @@ body {
  .dropdown-item :active{
      background-color: gainsboro;
  }
+
+ .addpr{
+    margin-left: 450px;
+
+}
+
+@media only screen and (max-width: 600px){
+    .addpr{
+        margin-left: 80px;
+    
+    }
+ }
+
+@media only screen and (min-width: 600px){
+    .addpr{
+        margin-left: 200px;
+    
+    }
+ }
+
+
+ @media only screen and (min-width: 768px){
+    .addpr{
+        margin-left: 250px;
+    
+    }
+ }
+
+ @media only screen and (min-width: 992px){
+    .addpr{
+        margin-left: 350px;
+    
+    }
+ }
+
+ @media only screen and (min-width: 1200px){
+    .addpr{
+        margin-left: 450px;
+    
+    }
+ }
+
+
+ .prcard{
+    width:18rem;
+ }
+
+ @media only screen and (min-width: 768px){
+    .prcard{
+        width:70%;
+        margin-left: 100px;
+    }
+ }
+
+
+ @media only screen and (min-width: 992px){
+    .prcard{
+        width:65%;
+    }
+ }
+
+ @media only screen and (min-width: 1200px){
+    .prcard{
+        width:40%
+    }
+ }
+
+ 
+
+ 
