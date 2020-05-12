@@ -10,14 +10,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Organisation Page</title>
 
-    
+
 </head>
 
 
 
 <body
     style="background-image: url('images/ngo-main.jpg');background-repeat: no-repeat;background-position: center;  background-size:cover;">
-
 
     <!--NAVBAR-->
 
@@ -31,8 +30,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto nav " style="padding-left:20px; margin-left:20px;">
                 <li class="nav-item " style="padding-left:20px; margin-left:20px;">
-                    <a class="nav-link active" href="#accdonations" role="tab" data-toggle="tab">Accept Donations<span
-                            class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="#accdonations" role="tab" data-toggle="tab">Accept
+                        Donations<span class="sr-only"></span></a>
                 </li>
                 <li class="nav-item" style="padding-left:20px; margin-left:20px;">
                     <a class="nav-link" href="#helpprg" role="tab" data-toggle="tab">Help Programs</a>
@@ -45,13 +44,14 @@
                     <button class="btn btn-warning my-2 my-sm-0 dropdown-toggle" id="dropdownMenuButton" style="padding-right: 20px;
                 margin-right: 100px;" type="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">My Profile</button>
-                
+
                     <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" style="word-wrap: break-word" href="#viewprofile" role="tab" data-toggle="tab">View Profile</a>
+                        <a class="dropdown-item" style="word-wrap: break-word" href="#viewprofile" data-toggle="modal"
+                            data-target="#exampleModal">View Profile</a>
                         <a class="dropdown-item" style="word-wrap: break-word" href="">Logout</a>
                     </div>
 
-                    
+
                 </div>
             </form>
 
@@ -60,7 +60,7 @@
 
 
 
-   
+
     <div class="container">
 
         <!--MAIN CONTENT FOR TABS-->
@@ -163,7 +163,8 @@
             <div role="tab-panel" class="tab-pane fade" id="helpprg">
 
                 <h3 class="page2-heading col-12">
-                    "Helping one person might not change the whole world but it could change the world for that person"
+                    "Helping one person might not change the whole world but it could change the world for that
+                    person"
                 </h3>
                 <h5 class="page2-heading col-12">
                     Here's how we do our part.
@@ -176,7 +177,8 @@
                             <img src="images/card1.webp" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Programme Name</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                <p class="card-text">Some quick example text to build on the card title and make up
+                                    the
                                     bulk of the card's content.</p>
                             </div>
                             <div class="card-body">
@@ -187,7 +189,8 @@
                             <img src="images/card2.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Programme Name</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                <p class="card-text">Some quick example text to build on the card title and make up
+                                    the
                                     bulk of the card's content.</p>
                             </div>
                             <div class="card-body">
@@ -199,7 +202,8 @@
                             <img src="images/card3.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Programme Name</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                <p class="card-text">Some quick example text to build on the card title and make up
+                                    the
                                     bulk of the card's content.</p>
                             </div>
                             <div class="card-body">
@@ -211,7 +215,8 @@
                             <img src="images/card4.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Programme Name</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                <p class="card-text">Some quick example text to build on the card title and make up
+                                    the
                                     bulk of the card's content.</p>
                             </div>
                             <div class="card-body">
@@ -223,7 +228,8 @@
                             <img src="images/card5.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Programme Name</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                <p class="card-text">Some quick example text to build on the card title and make up
+                                    the
                                     bulk of the card's content.</p>
                             </div>
                             <div class="card-body">
@@ -235,7 +241,8 @@
                             <img src="images/card6.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Programme Name</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                <p class="card-text">Some quick example text to build on the card title and make up
+                                    the
                                     bulk of the card's content.</p>
                             </div>
                             <div class="card-body">
@@ -243,7 +250,8 @@
                             </div>
                         </div>
 
-                        <h5 class="page2-heading col-12">Wish to be one of us? <br> Contribute by adding your programme
+                        <h5 class="page2-heading col-12">Wish to be one of us? <br> Contribute by adding your
+                            programme
                             and see the impact!
                         </h5>
                         <div class="addprmain">
@@ -257,68 +265,93 @@
 
             </div>
 
-            <div role="tab-panel" class="tab-pane fade" id="viewprofile">
 
-                <div class="row py-5 px-4">
-                    <div class="col-xl-5 col-md-6 col-sm-10 mx-auto">
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">My Profile</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
 
+                            <a href="ngo.html"><button type="button" class="close" aria-label="Close">
+                                    <span aria-hidden="true" style="color: white;">&times;</span>
+                                </button></a>
 
-                        <a href="ngo.html"><button type="button" class="close"  aria-label="Close">
-                            <span aria-hidden="true" style="color: white;">&times;</span>
-                          </button></a>
-                
-                        <!-- Profile widget -->
-                        <div class="bg-white shadow rounded overflow-hidden">
-                            <div class="px-4 pt-0 pb-4 bg-dark">
-                                <div class="media align-items-end profile-header">
-                                    <div class="profile mr-3"><img src="https://d19m59y37dris4.cloudfront.net/university/1-1-1/img/teacher-4.jpg" alt="..." width="130" class="rounded mb-2 img-thumbnail"><a href="#" class="btn btn-dark btn-sm btn-block">Edit profile</a></div>
-                                    <div class="media-body mb-5 text-white">
-                                        <h4 class="mt-0 mb-0" style="padding: 5px;">Name of Organisation</h4>
-                                        <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i>Location</p>
+                            <!-- Profile widget -->
+                            <div class="bg-white shadow rounded overflow-hidden">
+                                <div class="px-4 pt-0 pb-4 bg-dark">
+                                    <div class="media align-items-end profile-header">
+                                        <div class="profile mr-3"><img
+                                                src="https://d19m59y37dris4.cloudfront.net/university/1-1-1/img/teacher-4.jpg"
+                                                alt="..." width="130" class="rounded mb-2 img-thumbnail"><a href="#"
+                                                class="btn btn-dark btn-sm btn-block">Edit profile</a></div>
+                                        <div class="media-body mb-5 text-white">
+                                            <h4 class="mt-0 mb-0" style="padding: 5px;">Name of Organisation</h4>
+                                            <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i>Location</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                       
 
-                            <div class="py-4 px-4">
-                                <div class="d-flex align-items-center justify-content-between mb-3">
-                                    <h5 class="mb-0">Email</h5><h6 class="btn btn-link text-muted">My Email</h6>
+
+                                <div class="py-4 px-4">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <h5 class="mb-0">Email</h5>
+                                        <h6 class="btn btn-link text-muted">My Email</h6>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <h5 class="mb-0">Phone no.</h5>
+                                        <h6 class="btn btn-link text-muted">Phone</h6>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <h5 class="mb-0">Areas catered</h5>
+                                        <h6 class="btn btn-link text-muted">Areas</h6>
+                                    </div>
+
                                 </div>
-                                <div class="d-flex align-items-center justify-content-between mb-3">
-                                    <h5 class="mb-0">Phone no.</h5><h6 class="btn btn-link text-muted">Phone</h6>
+
+                                <div class="bg-light p-4 d-flex justify-content-between text-center">
+                                    <ul class="list-inline mb-0">
+                                        <li class="list-inline-item">
+                                            <h5 class="font-weight-bold mb-0 d-block text-center"> My Website</h5><a
+                                                href="#" class="btn btn-link text-muted">Open link</a>
+                                        </li>
+
+                                    </ul>
                                 </div>
-                                <div class="d-flex align-items-center justify-content-between mb-3">
-                                    <h5 class="mb-0">Areas catered</h5><h6 class="btn btn-link text-muted">Areas</h6>
-                                </div>
-                    
-                            </div>
-                            
-                            <div class="bg-light p-4 d-flex justify-content-between text-center">
-                                <ul class="list-inline mb-0">
-                                    <li class="list-inline-item">
-                                        <h5 class="font-weight-bold mb-0 d-block text-center"> My Website</h5><a href="#" class="btn btn-link text-muted">Open link</a>
-                                    </li>
-                                    
-                                </ul>
-                            </div>
-                
-                            <div class="py-4 px-4">
-                                
-                                <div class="py-4">
-                                    <h5 class="mb-3">Description</h5>
-                                    <div class="p-4 bg-light rounded shadow-sm">
-                                        <p class="font-italic mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                                        
+
+                                <div class="py-4 px-4">
+
+                                    <div class="py-4">
+                                        <h5 class="mb-3">Description</h5>
+                                        <div class="p-4 bg-light rounded shadow-sm">
+                                            <p class="font-italic mb-0">Lorem ipsum dolor sit amet, consectetur
+                                                adipisicing
+                                                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                Ut
+                                                enim ad minim veniam.</p>
+
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div><!-- End profile widget -->
-                
+                            </div><!-- End profile widget -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
-                
             </div>
+
+
+
+
+
 
 
         </div>
@@ -326,21 +359,22 @@
 
     </div>
 
-    
 
-    
-<script src="./scripts/navbar.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
 
-    
+
+    <script src="./scripts/navbar.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
 
 
 </body>
