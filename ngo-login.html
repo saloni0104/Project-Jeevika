@@ -9,7 +9,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LogIn</title>
+    <title> Organisation LogIn</title>
+
+    <script>
+        function yellow(event) {
+            event.target.style.borderColor = "#f77f00";
+            event.target.placeholder = "";
+        }</script>
+
 </head>
 
 <body style="background-image: url('images/ngo-login.jpg');background-repeat: no-repeat;background-position: center;  background-size:cover; background-color:lightsteelblue; ">
@@ -38,13 +45,10 @@
                         <div id="error"></div>
                     </div>
                     <div>
-                        <input id="name" placeholder="Name" type="name" name="name" required>
+                        <input id="logemail" placeholder="Email" type="email" name="emailaddress" onfocus="yellow(event)" required>
                     </div>
                     <div>
-                        <input id="email" placeholder="Email" type="email" name="emailaddress" required>
-                    </div>
-                    <div>
-                        <input id="passwd" placeholder="Password" type="password" required>
+                        <input id="logpass" placeholder="Password" type="password" onfocus="yellow(event)" required>
                     </div>
                     <div style=" position:relative;">
                         <input class="login-button" type="submit" value="LogIn" id="sub">
@@ -61,7 +65,7 @@
 
 
 
-    <script src="./scripts/navbar.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -71,6 +75,102 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+
+        <script>
+
+
+            window.onload = function () {
+                document.getElementById("sub").addEventListener("click", function (e) {
+                    var email = document.getElementById("logemail").value;
+                    var password = document.getElementById("logpass").value;
+    
+    
+                    let status = [];
+    
+                    let re = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+    
+    
+                    if (re.test(email.trim())) {
+    
+                        status.push("true")
+    
+                    } else {
+    
+                        document.getElementById("logemail").style.borderColor = "red";
+                        document.getElementById("logemail").value = "";
+                        document.getElementById("logemail").placeholder = "Please enter valid email";
+    
+                        status.push("false")
+    
+                        document.getElementById("logemail").classList.add("red");
+    
+                    }
+    
+                    var len = password.length;
+                    if (len >= 6) {
+                        status.push("true")
+                    } else {
+                        status.push("true")
+                        document.getElementById("logpass").style.borderColor = "red";
+                        document.getElementById("logpass").value = "";
+                        document.getElementById("logpass").placeholder = "Please enter valid password";
+                        status.push("false")
+                        document.getElementById("logpass").classList.add("red");
+                    }
+    
+    
+                    if (status.includes("false")) {
+                        console.log("There was some error while validating")
+                        return false
+                    }
+    
+                    else {
+    
+                        console.log("Validated")
+    
+                        document.getElementById("sub").value = "Loading..."
+    
+    
+                        fetch("https://snapchatportal.herokuapp.com/login", {
+                            method: 'POST',
+                            headers: new Headers({ 'content-type': 'application/json' }),
+                            body: JSON.stringify({
+                                email: email,
+                                password: password,
+                            }),
+                        })
+                            .then(function (response) {
+                                return response.json();
+                            })
+                            .then(res => {
+                                console.log("The response",res)
+                                sessionStorage.setItem("token", res.token)
+                                if (res.token) {
+                                    window.location.href = "Upload.html";
+                                    document.getElementById("sub").value = "LogIn"
+                                } else {
+                                    document.getElementById("banner").style.backgroundColor = "red";
+                                    document.getElementById("banner").style.display = "block";
+                                    document.getElementById("banner").innerHTML = "Please enter correct username and password."
+                                    document.getElementById("banner").classList.add("error");
+                                    document.getElementById("sub").value = "LogIn"
+                                }
+                            })
+                            .catch(err => {
+                                document.getElementById("banner").style.backgroundColor = "red";
+                                document.getElementById("banner").style.display = "block";
+                                document.getElementById("banner").innerHTML = "There was some error!! It's on us."
+                                document.getElementById("banner").classList.add("error");
+                                document.getElementById("sub").value = "LogIn"
+                                console.log(err)
+                            })
+    
+                    }
+    
+                });
+            }
+        </script>
 
 </body>
 
