@@ -45,13 +45,19 @@
                         <div id="error"></div>
                     </div>
                     <div>
-                        <input id="name1" placeholder="Name" type="text" onfocus="yellow(event)" required>
+                        <input id="name1" placeholder="Name" type="text" onfocus="yellow(event)"  required>
                     </div>
                     <div>
-                        <input id="email1" placeholder="Email" type="email" onfocus="yellow(event)" name="emailaddress" required>
+                        <input id="email1" placeholder="Email" type="email" onfocus="yellow(event)"  name="emailaddress" required>
                     </div>
                     <div>
-                        <input id="pass1" placeholder="Password" type="password" onfocus="yellow(event)" required>
+                        <input id="phone" placeholder="Phone" type="tel" onfocus="yellow(event)"  required>
+                    </div>
+                    <div>
+                        <input id="address" placeholder="Address" type="text" onfocus="yellow(event)"  required>
+                    </div>
+                    <div>
+                        <input id="pass1" placeholder="Password" type="password" onfocus="yellow(event)"  required>
                     </div>
                     <div style=" position:relative;">
                         <input class="login-button" type="submit" value="Signup" id="sub">
@@ -89,6 +95,8 @@
                     var name = document.getElementById("name1").value;
                     var email = document.getElementById("email1").value;
                     var password = document.getElementById("pass1").value;
+                    var phone = document.getElementById("phone").value;
+                    var address = document.getElementById("address").value; 
                     
                     let status = [];
                     let re = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
@@ -99,6 +107,24 @@
                         document.getElementById("name1").placeholder = "Please enter valid name";
                         status.push("false")
                         document.getElementById("name1").classList.add("red");
+                    } else {
+                        status.push("true")
+                    }
+                    if (phone.length <= 1) {
+                        document.getElementById("phone").style.borderColor = "red";
+                        document.getElementById("phone").value = "";
+                        document.getElementById("phone").placeholder = "Please enter valid number";
+                        status.push("false")
+                        document.getElementById("phone").classList.add("red");
+                    } else {
+                        status.push("true")
+                    }
+                    if (address.length <= 1) {
+                        document.getElementById("address").style.borderColor = "red";
+                        document.getElementById("address").value = "";
+                        document.getElementById("address").placeholder = "Please enter valid address";
+                        status.push("false")
+                        document.getElementById("address").classList.add("red");
                     } else {
                         status.push("true")
                     }
@@ -128,13 +154,15 @@
                     else {
                         console.log("Validated")
                         document.getElementById("sub").value = "Loading..."
-                        fetch("https://snapchatportal.herokuapp.com/register", {
+                        fetch("https://crack-corona-hack-backend.herokuapp.com/app/user/signup/", {
                             method: 'POST',
                             headers: new Headers({'content-type': 'application/json'}),
                             body: JSON.stringify({
-                                name: name,
                                 email: email,
-                                password: password,
+                                username: name,
+                                phone_no: phone,
+                                address: address,
+                                password: password
                             }),
                         })
                         .then(res => {
@@ -151,7 +179,7 @@
                                 document.getElementById("banner").classList.add("error");
                                 document.getElementById("sub").value = "Register"
                                 setTimeout(() => {
-                                    window.location.href = "Login.html";
+                                    window.location.href = "donor-login.html";
                                 }, 2500)
                             } else if (res.err = "User already exist"){
                                 document.getElementById("banner").style.backgroundColor = "red";
