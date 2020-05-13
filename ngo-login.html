@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./styles/navbar.css">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -45,7 +45,7 @@
                         <div id="error"></div>
                     </div>
                     <div>
-                        <input id="logemail" placeholder="Email" type="email" name="emailaddress" onfocus="yellow(event)" required>
+                        <input id="logname" placeholder="Name" type="text" name="name" onfocus="yellow(event)" required>
                     </div>
                     <div>
                         <input id="logpass" placeholder="Password" type="password" onfocus="yellow(event)" required>
@@ -82,7 +82,7 @@
 
             window.onload = function () {
                 document.getElementById("sub").addEventListener("click", function (e) {
-                    var email = document.getElementById("logemail").value;
+                    var name = document.getElementById("logname").value;
                     var password = document.getElementById("logpass").value;
     
     
@@ -91,22 +91,15 @@
                     let re = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
     
     
-                    if (re.test(email.trim())) {
-    
-                        status.push("true")
-    
-                    } else {
-    
-                        document.getElementById("logemail").style.borderColor = "red";
-                        document.getElementById("logemail").value = "";
-                        document.getElementById("logemail").placeholder = "Please enter valid email";
-    
-                        status.push("false")
-    
-                        document.getElementById("logemail").classList.add("red");
-    
-                    }
-    
+                    if (name.length <= 1) {
+                    document.getElementById("logname").style.borderColor = "red";
+                    document.getElementById("logname").value = "";
+                    document.getElementById("logname").placeholder = "Please enter valid name";
+                    status.push("false")
+                    document.getElementById("logname").classList.add("red");
+                } else {
+                    status.push("true")
+                }
                     var len = password.length;
                     if (len >= 6) {
                         status.push("true")
@@ -132,11 +125,11 @@
                         document.getElementById("sub").value = "Loading..."
     
     
-                        fetch("https://snapchatportal.herokuapp.com/login", {
+                        fetch("https://crack-corona-hack-backend.herokuapp.com/app/org/login/", {
                             method: 'POST',
                             headers: new Headers({ 'content-type': 'application/json' }),
                             body: JSON.stringify({
-                                email: email,
+                                org_name: name,
                                 password: password,
                             }),
                         })
