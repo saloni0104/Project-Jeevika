@@ -44,7 +44,28 @@
                         <input id="name1" placeholder="Name" type="text" onfocus="yellow(event)" required>
                     </div>
                     <div>
-                        <input id="email1" placeholder="Email" type="email" name="emailaddress" onfocus="yellow(event)" required>
+                        <input id="email1" placeholder="Email" type="email" name="emailaddress" onfocus="yellow(event)"
+                            required>
+                    </div>
+                    <div>
+                        <input id="phone" placeholder="Phone" type="tel" name="phone" onfocus="yellow(event)"
+                            required>
+                    </div>
+                    <div>
+                        <input id="address" placeholder="Address" type="text" name="address" onfocus="yellow(event)"
+                            required>
+                    </div>
+                    <div>
+                        <input id="area" placeholder="Areas Catered" type="text" name="area" onfocus="yellow(event)"
+                            required>
+                    </div>
+                    <div>
+                        <input id="desc" placeholder="Description" type="text" name="description" onfocus="yellow(event)"
+                            required>
+                    </div>
+                    <div>
+                        <input id="web" placeholder="Website link" type="text" name="web" onfocus="yellow(event)"
+                            required>
                     </div>
                     <div>
                         <input id="pass1" placeholder="Password" type="password" onfocus="yellow(event)" required>
@@ -75,62 +96,117 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-        <script>
+    <script>
 
-            window.onload = function () {
-                document.getElementById("sub").addEventListener("click", function (e) {
-    
-                    var name = document.getElementById("name1").value;
-                    var email = document.getElementById("email1").value;
-                    var password = document.getElementById("pass1").value;
-                    
-                    let status = [];
-                    let re = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
-    
-                    if (name.length <= 1) {
-                        document.getElementById("name1").style.borderColor = "red";
-                        document.getElementById("name1").value = "";
-                        document.getElementById("name1").placeholder = "Please enter valid name";
-                        status.push("false")
-                        document.getElementById("name1").classList.add("red");
-                    } else {
-                        status.push("true")
-                    }
-                    if (re.test(email.trim())) {
-                        status.push("true")
-                    } else {
-                        document.getElementById("email1").style.borderColor = "red";
-                        document.getElementById("email1").value = "";
-                        document.getElementById("email1").placeholder = "Please enter valid email";
-                        status.push("false")
-                        document.getElementById("email1").classList.add("red");
-                    }
-                    var len = password.length;
-                    if (len <= 6) {
-                        status.push("false")
-                        document.getElementById("pass1").style.borderColor = "red";
-                        document.getElementById("pass1").value = "";
-                        document.getElementById("pass1").placeholder = "Please enter valid password";
-                        
-                    } else {
-                        status.push("true")
-                    }
-                    if (status.includes("false")) {
-                        console.log("There was some error while validating")
-                        return false
-                    }
-                    else {
-                        console.log("Validated")
-                        document.getElementById("sub").value = "Loading..."
-                        fetch("https://snapchatportal.herokuapp.com/register", {
-                            method: 'POST',
-                            headers: new Headers({'content-type': 'application/json'}),
-                            body: JSON.stringify({
-                                name: name,
-                                email: email,
-                                password: password,
-                            }),
-                        })
+        window.onload = function () {
+            document.getElementById("sub").addEventListener("click", function (e) {
+
+                var name = document.getElementById("name1").value;
+                var email = document.getElementById("email1").value;
+                var phone = document.getElementById("phone").value;
+                var address = document.getElementById("address").value;
+                var areas_catered = document.getElementById("area").value;
+                var description = document.getElementById("desc").value;
+                var password = document.getElementById("pass1").value;
+                var web_link = document.getElementById("web").value;
+
+                let status = [];
+                let re = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+
+                if (name.length <= 1) {
+                    document.getElementById("name1").style.borderColor = "red";
+                    document.getElementById("name1").value = "";
+                    document.getElementById("name1").placeholder = "Please enter valid name";
+                    status.push("false")
+                    document.getElementById("name1").classList.add("red");
+                } else {
+                    status.push("true")
+                }
+                if (phone.length <= 8) {
+                    document.getElementById("phone").style.borderColor = "red";
+                    document.getElementById("phone").value = "";
+                    document.getElementById("phone").placeholder = "Please enter valid phone";
+                    status.push("false")
+                    document.getElementById("phone").classList.add("red");
+                } else {
+                    status.push("true")
+                }
+                if (address.length <= 1) {
+                    document.getElementById("address").style.borderColor = "red";
+                    document.getElementById("address").value = "";
+                    document.getElementById("address").placeholder = "Please enter valid address";
+                    status.push("false")
+                    document.getElementById("address").classList.add("red");
+                } else {
+                    status.push("true")
+                }
+                if (areas_catered.length <= 1) {
+                    document.getElementById("area").style.borderColor = "red";
+                    document.getElementById("area").value = "";
+                    document.getElementById("area").placeholder = "Please enter valid area";
+                    status.push("false")
+                    document.getElementById("area").classList.add("red");
+                } else {
+                    status.push("true")
+                }
+                if (web_link.length <= 1) {
+                    document.getElementById("web").style.borderColor = "red";
+                    document.getElementById("web").value = "";
+                    document.getElementById("web").placeholder = "Please enter valid website";
+                    status.push("false")
+                    document.getElementById("web").classList.add("red");
+                } else {
+                    status.push("true")
+                }
+                if (description.length <= 1) {
+                    document.getElementById("desc").style.borderColor = "red";
+                    document.getElementById("desc").value = "";
+                    document.getElementById("desc").placeholder = "Please enter valid description";
+                    status.push("false")
+                    document.getElementById("desc").classList.add("red");
+                } else {
+                    status.push("true")
+                }
+                if (re.test(email.trim())) {
+                    status.push("true")
+                } else {
+                    document.getElementById("email1").style.borderColor = "red";
+                    document.getElementById("email1").value = "";
+                    document.getElementById("email1").placeholder = "Please enter valid email";
+                    status.push("false")
+                    document.getElementById("email1").classList.add("red");
+                }
+                var len = password.length;
+                if (len <= 6) {
+                    status.push("false")
+                    document.getElementById("pass1").style.borderColor = "red";
+                    document.getElementById("pass1").value = "";
+                    document.getElementById("pass1").placeholder = "Please enter valid password";
+
+                } else {
+                    status.push("true")
+                }
+                if (status.includes("false")) {
+                    console.log("There was some error while validating")
+                    return false
+                }
+                else {
+                    console.log("Validated")
+                    document.getElementById("sub").value = "Loading..."
+                    fetch("https://crack-corona-hack-backend.herokuapp.com/app/org/signup/", {
+                        method: 'POST',
+                        headers: new Headers({ 'content-type': 'application/json' }),
+                        body: JSON.stringify({
+                            email: email,
+                            org_name: name,
+                            phone_no: phone,
+                            address: address,
+                            areas_catered: areas_catered,
+                            description: description,
+                            web_link: web_link,
+                            password: password
+                        }),
+                    })
                         .then(res => {
                             return res.json()
                         })
@@ -147,7 +223,7 @@
                                 setTimeout(() => {
                                     window.location.href = "Login.html";
                                 }, 2500)
-                            } else if (res.err = "User already exist"){
+                            } else if (res.err = "User already exist") {
                                 document.getElementById("banner").style.backgroundColor = "red";
                                 document.getElementById("banner").style.display = "block";
                                 document.getElementById("banner").innerHTML = "User already exist!! Try signing in."
@@ -168,9 +244,9 @@
                             document.getElementById("banner").classList.add("error");
                             document.getElementById("sub").value = "Register"
                         })
-                    }
-                })
-            };</script>
+                }
+            })
+        };</script>
 
 
 
