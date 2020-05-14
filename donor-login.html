@@ -130,25 +130,30 @@
 
                 else {
 
-                    console.log("Validated")
-
+                    console.log("Validated log in ")
+                    console.log({
+                            email: email,
+                            password: password,
+                        })
                     document.getElementById("sub").value = "Loading..."
 
                     fetch("https://crack-corona-hack-backend.herokuapp.com/app/user/login/", {
                         method: 'POST',
-                        headers: new Headers({ 'content-type': 'application/json' }),
-                        body: JSON.stringify({
+                        body: {
                             email: email,
                             password: password,
-                        }),
+                        },
                     })
+                    // do one thing if possible share the link of repo i will download poora foldr wahan se fix on my laptop okay 
+                    .then(function (response) { 
+                        console.log(response)
+
+                                return response.json();
+                            })
                         .then(res => {
-                            return res.json()
-                        })
-                        .then(res => {
-                            console.log("The response", res)
-                            sessionStorage.setItem("token", res.token)
-                            if (res.token) {
+                            console.log(res)
+                            if (res.User.token) {
+                                localStorage.setItem("token", res.User.token)   //done
                                 window.location.href = "donors.html";
                                 document.getElementById("sub").value = "LogIn"
                             } else {
@@ -160,9 +165,10 @@
                             }
                         })
                         .catch(err => {
+                            console.log(err)
                             document.getElementById("banner").style.backgroundColor = "red";
                             document.getElementById("banner").style.display = "block";
-                            document.getElementById("banner").innerHTML = "There was some error!! It's on us."
+                            document.getElementById("banner").innerHTML = "Please enter correct username and password."
                             document.getElementById("banner").classList.add("error");
                             document.getElementById("sub").value = "LogIn"
                             console.log(err)

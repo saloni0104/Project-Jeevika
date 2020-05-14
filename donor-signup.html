@@ -172,9 +172,9 @@
                         })
                         .then(res => {
                             console.log(res)
-                            if (res.access_token) {
-                                localStorage.setItem("sc_access_token", res.access_token);
-                                localStorage.setItem("sc_refresh_token", res.refresh_token);
+                            if (res.User.token) {
+                                localStorage.setItem("token", res.User.token);         //done like hell
+                                localStorage.setItem("token", res.User.token);
                                 document.getElementById("banner").style.backgroundColor = "green";
                                 document.getElementById("banner").style.display = "block";
                                 document.getElementById("banner").innerHTML = "User was successfully registered!! Redirecting ...";

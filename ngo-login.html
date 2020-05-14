@@ -139,15 +139,14 @@
                                 return response.json();
                             })
                             .then(res => {
-                                console.log("The response",res)
-                                sessionStorage.setItem("token", res.token)
-                                if (res.token) {
+                                if (res.Organization.token) {
+                                    localStorage.setItem("token", res.Organization.token)     //done like hell
                                     window.location.href = "ngo.html";
                                     document.getElementById("sub").value = "LogIn"
                                 } else {
                                     document.getElementById("banner").style.backgroundColor = "red";
                                     document.getElementById("banner").style.display = "block";
-                                    document.getElementById("banner").innerHTML = "Please enter correct username and password."
+                                    document.getElementById("banner").innerHTML = ""
                                     document.getElementById("banner").classList.add("error");
                                     document.getElementById("sub").value = "LogIn"
                                 }
@@ -155,7 +154,7 @@
                             .catch(err => {
                                 document.getElementById("banner").style.backgroundColor = "red";
                                 document.getElementById("banner").style.display = "block";
-                                document.getElementById("banner").innerHTML = "There was some error!! It's on us."
+                                document.getElementById("banner").innerHTML = "Please enter correct username and password."
                                 document.getElementById("banner").classList.add("error");
                                 document.getElementById("sub").value = "LogIn"
                                 console.log(err)
