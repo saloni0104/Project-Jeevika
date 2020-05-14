@@ -58,7 +58,7 @@
                             <input id="logpass" placeholder="Password" type="password" onfocus="yellow(event)" required>
                         </div>
                         <div style=" position:relative;">
-                            <input class="login-button" type="submit" value="LogIn" id="sub">
+                            <input class="login-button" type="button" value="LogIn" id="sub">
                         </div>
                     </form>
                     <div style="padding-top:30px">
@@ -130,24 +130,19 @@
 
                 else {
 
-                    console.log("Validated log in ")
-                    console.log({
-                            email: email,
-                            password: password,
-                        })
+                    console.log("Validated")
                     document.getElementById("sub").value = "Loading..."
 
                     fetch("https://crack-corona-hack-backend.herokuapp.com/app/user/login/", {
                         method: 'POST',
-                        body: {
+                        headers: new Headers({ 'content-type': 'application/json' }),
+                        body: JSON.stringify ({
                             email: email,
                             password: password,
-                        },
+                        }),
                     })
-                    // do one thing if possible share the link of repo i will download poora foldr wahan se fix on my laptop okay 
-                    .then(function (response) { 
-                        console.log(response)
-
+                    
+                    .then(function (response) {
                                 return response.json();
                             })
                         .then(res => {
