@@ -32,6 +32,8 @@
     </nav>
 
     <div class="container-fluid">
+        <div class="container-fluid" id="banner" style="position: fixed; z-index: 100;">
+        </div>
         <div class="row" style="margin-top : 10px; margin-bottom:50px;">
 
             <div class="col-12 col-lg-6">
@@ -221,7 +223,7 @@
                                 document.getElementById("banner").classList.add("error");
                                 document.getElementById("sub").value = "Register"
                                 setTimeout(() => {
-                                    window.location.href = "Login.html";
+                                    window.location.href = "ngo-login.html";
                                 }, 2500)
                             } else if (res.err = "User already exist") {
                                 document.getElementById("banner").style.backgroundColor = "red";

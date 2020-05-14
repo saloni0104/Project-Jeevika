@@ -35,6 +35,8 @@
 
 
     <div class="container-fluid">
+        <div class="container-fluid" id="banner" style="position: fixed; z-index: 100;">
+        </div>
         <div class="row" style="margin-top : 10px; margin-bottom:50px;">
 
 
@@ -175,9 +177,10 @@
                                 localStorage.setItem("sc_refresh_token", res.refresh_token);
                                 document.getElementById("banner").style.backgroundColor = "green";
                                 document.getElementById("banner").style.display = "block";
-                                document.getElementById("banner").innerHTML = "User was successfully registered!! Redirecting ..."
+                                document.getElementById("banner").innerHTML = "User was successfully registered!! Redirecting ...";
                                 document.getElementById("banner").classList.add("error");
-                                document.getElementById("sub").value = "Register"
+                                document.getElementById("name1").value = "";
+                                document.getElementById("sub").value = "Signup";
                                 setTimeout(() => {
                                     window.location.href = "donor-login.html";
                                 }, 2500)
@@ -186,13 +189,13 @@
                                 document.getElementById("banner").style.display = "block";
                                 document.getElementById("banner").innerHTML = "User already exist!! Try signing in."
                                 document.getElementById("banner").classList.add("error");
-                                document.getElementById("sub").value = "Register"
+                                document.getElementById("sub").value = "Signup"
                             } else {
                                 document.getElementById("banner").style.backgroundColor = "red";
                                 document.getElementById("banner").style.display = "block";
                                 document.getElementById("banner").innerHTML = "Unexpected error occurred"
                                 document.getElementById("banner").classList.add("error");
-                                document.getElementById("sub").value = "Register"
+                                document.getElementById("sub").value = "Signup"
                             }
                         })
                         .catch(err => {
@@ -200,7 +203,7 @@
                             document.getElementById("banner").style.display = "block";
                             document.getElementById("banner").innerHTML = "It's on us! There was some error"
                             document.getElementById("banner").classList.add("error");
-                            document.getElementById("sub").value = "Register"
+                            document.getElementById("sub").value = "Signup"
                         })
                     }
                 })

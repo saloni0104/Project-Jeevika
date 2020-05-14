@@ -32,6 +32,8 @@
     </nav>
 
     <div class="container-fluid" >
+        <div class="container-fluid" id="banner" style="position: fixed; z-index: 100;">
+        </div>
         <div class="row" style="margin-top : 10px; margin-bottom:50px;">
 
             <div class="col-12 col-lg-6" style="padding: 40px">
@@ -140,7 +142,7 @@
                                 console.log("The response",res)
                                 sessionStorage.setItem("token", res.token)
                                 if (res.token) {
-                                    window.location.href = "Upload.html";
+                                    window.location.href = "ngo.html";
                                     document.getElementById("sub").value = "LogIn"
                                 } else {
                                     document.getElementById("banner").style.backgroundColor = "red";
