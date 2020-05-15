@@ -13,6 +13,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Donor Page</title>
 
+  <script>
+    function yellow(event) {
+        event.target.style.borderColor = "#f77f00";
+        event.target.placeholder = "";
+    }</script>
+
 </head>
 
 <body
@@ -105,13 +111,12 @@
                   <input id="itemname" placeholder="Item Name" type="text" onfocus="yellow(event)" required>
                 </div>
                 <div>
-                  <input id="quantity" placeholder="Quantity" type="number" onfocus="yellow(event)" name="emailaddress"
-                    required>
+                  <input id="quantity" placeholder="Quantity" type="number" onfocus="yellow(event)" required>
                 </div>
                 <div>
                   <input id="desc" placeholder="Description" type="text" onfocus="yellow(event)" required>
                 </div>
-                
+
                 <div style=" position:relative;">
                   <input class="login-button" type="submit" value="Submit" id="sub">
                 </div>
@@ -428,6 +433,104 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+
+  <script>
+
+    window.onload = function () {
+      document.getElementById("sub").addEventListener("click", function (e) {
+
+        var itemname = document.getElementById("itemname").value;
+        var quantity = document.getElementById("quantity").value;
+        var description = document.getElementById("desc").value;
+
+
+        let status = [];
+
+
+        if (itemname.length <= 1) {
+          document.getElementById("itemname").style.borderColor = "red";
+          document.getElementById("itemname").value = "";
+          document.getElementById("itemname").placeholder = "Please enter valid item name";
+          status.push("false")
+          document.getElementById("itemname").classList.add("red");
+        } else {
+          status.push("true")
+        }
+        if (quantity.length < 1) {
+          document.getElementById("quantity").style.borderColor = "red";
+          document.getElementById("quantity").value = "";
+          document.getElementById("quantity").placeholder = "Please enter valid quantity";
+          status.push("false")
+          document.getElementById("quantity").classList.add("red");
+        } else {
+          status.push("true")
+        }
+        if (description.length <= 1) {
+          document.getElementById("desc").style.borderColor = "red";
+          document.getElementById("desc").value = "";
+          document.getElementById("desc").placeholder = "Please enter valid description";
+          status.push("false")
+          document.getElementById("desc").classList.add("red");
+        } else {
+          status.push("true")
+        }
+        if (status.includes("false")) {
+          console.log("There was some error while validating")
+          return false
+        }
+        else {
+          console.log("Validated")
+          document.getElementById("sub").value = "Loading..."
+          fetch("http://localhost:3000/app/donation/", {
+            method: 'POST',
+            headers: new Headers({ 'content-type': 'application/json' }),
+            body: JSON.stringify({
+              item_name: itemname,
+              quantity: quantity,
+              description: description
+            }),
+          })
+            .then(res => {
+              return res.json()
+            })
+            .then(res => {
+              console.log(res)
+              if (res.User.token) {
+                localStorage.setItem("token", res.User.token);         
+                localStorage.setItem("token", res.User.token);
+                document.getElementById("banner").style.backgroundColor = "green";
+                document.getElementById("banner").style.display = "block";
+                document.getElementById("banner").innerHTML = "You donation request has been submitted!!";
+                document.getElementById("banner").classList.add("error");
+                //document.getElementById("name1").value = "";
+                document.getElementById("sub").value = "Submit";
+                setTimeout(() => {
+                  window.location.href = "donors.html";
+                }, 2500)
+              } else if (res.err = "User already exist") {
+                document.getElementById("banner").style.backgroundColor = "red";
+                document.getElementById("banner").style.display = "block";
+                document.getElementById("banner").innerHTML = "User already exist!! Try signing in."
+                document.getElementById("banner").classList.add("error");
+                document.getElementById("sub").value = "Submit"
+              } else {
+                document.getElementById("banner").style.backgroundColor = "red";
+                document.getElementById("banner").style.display = "block";
+                document.getElementById("banner").innerHTML = "Unexpected error occurred"
+                document.getElementById("banner").classList.add("error");
+                document.getElementById("sub").value = "Submit"
+              }
+            })
+            .catch(err => {
+              document.getElementById("banner").style.backgroundColor = "red";
+              document.getElementById("banner").style.display = "block";
+              document.getElementById("banner").innerHTML = "It's on us! There was some error"
+              document.getElementById("banner").classList.add("error");
+              document.getElementById("sub").value = "Submit"
+            })
+        }
+      })
+    };</script>
 
 </body>
 
