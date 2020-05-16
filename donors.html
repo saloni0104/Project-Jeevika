@@ -65,6 +65,8 @@
   </nav>
 
   <div class="container" id="background">
+    <div class="container-fluid" id="banner" style="position: fixed; z-index: 100;">
+    </div>
 
 
     <div class=" col-12 page2-heading">
@@ -494,10 +496,9 @@
               return res.json()
             })
             .then(res => {
+              console.log('Helloo')
               console.log(res)
-              if (res.User.token) {
-                localStorage.setItem("token", res.User.token);         
-                localStorage.setItem("token", res.User.token);
+              if (res.quantity) {
                 document.getElementById("banner").style.backgroundColor = "green";
                 document.getElementById("banner").style.display = "block";
                 document.getElementById("banner").innerHTML = "You donation request has been submitted!!";
@@ -510,7 +511,7 @@
               } else if (res.err = "User already exist") {
                 document.getElementById("banner").style.backgroundColor = "red";
                 document.getElementById("banner").style.display = "block";
-                document.getElementById("banner").innerHTML = "User already exist!! Try signing in."
+                document.getElementById("banner").innerHTML = "User already exist!! Try signing in."  
                 document.getElementById("banner").classList.add("error");
                 document.getElementById("sub").value = "Submit"
               } else {
