@@ -496,19 +496,16 @@
               return res.json()
             })
             .then(res => {
-              console.log('Helloo')
-              console.log(res)
-              if (res.quantity) {
+              if (res.message.id) {
                 document.getElementById("banner").style.backgroundColor = "green";
                 document.getElementById("banner").style.display = "block";
                 document.getElementById("banner").innerHTML = "You donation request has been submitted!!";
                 document.getElementById("banner").classList.add("error");
-                //document.getElementById("name1").value = "";
                 document.getElementById("sub").value = "Submit";
                 setTimeout(() => {
                   window.location.href = "donors.html";
                 }, 2500)
-              } else if (res.err = "User already exist") {
+              } else if (res.err == "User already exist") {
                 document.getElementById("banner").style.backgroundColor = "red";
                 document.getElementById("banner").style.display = "block";
                 document.getElementById("banner").innerHTML = "User already exist!! Try signing in."  
