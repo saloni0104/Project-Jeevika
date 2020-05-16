@@ -420,10 +420,6 @@
   </div>
 
 
-
-
-
-  <script src="./scripts/navbar.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -481,9 +477,13 @@
         else {
           console.log("Validated")
           document.getElementById("sub").value = "Loading..."
-          fetch("http://localhost:3000/app/donation/", {
+          let token = (localStorage.getItem("token"));
+          fetch("https://crack-corona-hack-backend.herokuapp.com/app/donation/", {
             method: 'POST',
-            headers: new Headers({ 'content-type': 'application/json' }),
+            headers: new Headers({
+               'content-type': 'application/json',
+               'Authorization': `Bearer ${token}`
+               }),
             body: JSON.stringify({
               item_name: itemname,
               quantity: quantity,
