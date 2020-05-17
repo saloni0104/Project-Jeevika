@@ -27,7 +27,7 @@
     background: red;
     animation-name: opacityOnAndOff;
     animation-timing-function: linear;
-    animation-duration: 4s;
+    animation-duration: 3s;
     animation-iteration-count:1;
     animation-play-state:running;
     animation-fill-mode:forwards;
