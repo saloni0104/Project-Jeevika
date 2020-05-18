@@ -6,7 +6,6 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="./css/ngo.css">
-  <link rel="stylesheet" href="./css/donors.css">
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,8 +14,8 @@
 
   <script>
     function yellow(event) {
-        event.target.style.borderColor = "#f77f00";
-        event.target.placeholder = "";
+      event.target.style.borderColor = "#f77f00";
+      event.target.placeholder = "";
     }</script>
 
 </head>
@@ -66,7 +65,7 @@
   </nav>
 
   <div class="container" id="background">
-    
+
 
 
     <div class=" col-12 page2-heading">
@@ -361,8 +360,8 @@
                       src="https://d19m59y37dris4.cloudfront.net/university/1-1-1/img/teacher-4.jpg" alt="..."
                       width="130" class="rounded mb-2 img-thumbnail"></div>
                   <div class="media-body mb-5 text-white" style="margin-top: 20px;">
-                    <h4 class="mt-0 mb-0" style="padding: 5px;">Name of Donor</h4>
-                    <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i>Location</p>
+                    <h4 class="mt-0 mb-0" style="padding: 5px;" id="pr_nameofuser">Name of Donor</h4>
+                    <p class="small mb-4"> <i class="fa fa-map-marker mr-2" id="pr_location"></i>Location</p>
                   </div>
                 </div>
               </div>
@@ -372,15 +371,15 @@
               <div class="py-4 px-4">
                 <div class="d-flex align-items-center justify-content-between mb-3">
                   <h5 class="mb-0">Email</h5>
-                  <h6 class="btn btn-link text-muted">My Email</h6>
+                  <h6 class="btn btn-link text-muted" id="pr_email">My Email</h6>
                 </div>
                 <div class="d-flex align-items-center justify-content-between mb-3">
                   <h5 class="mb-0">Phone no.</h5>
-                  <h6 class="btn btn-link text-muted">Phone</h6>
+                  <h6 class="btn btn-link text-muted" id="pr_phone">Phone</h6>
                 </div>
                 <div class="d-flex align-items-center justify-content-between mb-3">
                   <h5 class="mb-0">Areas catered</h5>
-                  <h6 class="btn btn-link text-muted">Areas</h6>
+                  <h6 class="btn btn-link text-muted" id="pr_area">Areas</h6>
                 </div>
 
               </div>
@@ -481,9 +480,9 @@
           fetch("https://crack-corona-hack-backend.herokuapp.com/app/donation/", {
             method: 'POST',
             headers: new Headers({
-               'content-type': 'application/json',
-               'Authorization': `Bearer ${token}`
-               }),
+              'content-type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            }),
             body: JSON.stringify({
               item_name: itemname,
               quantity: quantity,
@@ -506,7 +505,7 @@
               } else if (res.err == "User already exist") {
                 document.getElementById("banner").style.backgroundColor = "red";
                 document.getElementById("banner").style.display = "block";
-                document.getElementById("banner").innerHTML = "User already exist!! Try signing in."  
+                document.getElementById("banner").innerHTML = "User already exist!! Try signing in."
                 document.getElementById("banner").classList.add("error");
                 document.getElementById("sub").value = "Submit"
               } else {
@@ -528,9 +527,49 @@
       });
 
       document.getElementById("logout").addEventListener("click", function (e) {
+        e.preventDefault()
+        let token = localStorage.getItem("token");
+        fetch("https://crack-corona-hack-backend.herokuapp.com/app/user/logout", {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+        })
+          .then(res => {
+            return res.json()
+          })
+          .then(res => {
+            console.log(res)
+            if (res.message === "User logged out") {
+              document.getElementById("banner").style.backgroundColor = "green";
+              document.getElementById("banner").style.display = "block";
+              document.getElementById("banner").innerHTML = "You have successfully logged out!";
+              document.getElementById("banner").classList.add("error");
+              setTimeout(() => {
+                window.location.href = "index.html";
+              }, 2500)
+            } else {
+              document.getElementById("banner").style.backgroundColor = "red";
+              document.getElementById("banner").style.display = "block";
+              document.getElementById("banner").innerHTML = "You have already logged out"
+              document.getElementById("banner").classList.add("error");
+            }
+          })
+          .catch(err => {
+            console.log(err)
+            document.getElementById("banner").style.backgroundColor = "red";
+            document.getElementById("banner").style.display = "block";
+            document.getElementById("banner").innerHTML = "It's on us! There was some error"
+            document.getElementById("banner").classList.add("error");
+          })
+      });
+
+      //VIEW PROFILE JS
+      document.getElementById("profile").addEventListener("click", function (e) {
                 e.preventDefault()
                 let token = localStorage.getItem("token");
-                fetch("https://crack-corona-hack-backend.herokuapp.com/app/user/logout", {
+                fetch("https://crack-corona-hack-backend.herokuapp.com/app/user/details/", {
+                    method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`
@@ -540,30 +579,21 @@
                         return res.json()
                     })
                     .then(res => {
-                        console.log(res)
-                        if (res.message === "User logged out") {
-                            document.getElementById("banner").style.backgroundColor = "green";
-                            document.getElementById("banner").style.display = "block";
-                            document.getElementById("banner").innerHTML = "You have successfully logged out!";
-                            document.getElementById("banner").classList.add("error");
-                            setTimeout(() => {
-                                window.location.href = "index.html";
-                            }, 2500)
+                        console.log(res);
+                        if (res.message === "User details") {
+                            document.getElementById("pr_nameofuser").value = res.User.username;
+                            document.getElementById("pr_location").value = res.User.address;
+                            document.getElementById("pr_email").value = res.User.email;
+                            document.getElementById("pr_phone").value = res.User.phone_no;
                         } else {
-                            document.getElementById("banner").style.backgroundColor = "red";
-                            document.getElementById("banner").style.display = "block";
-                            document.getElementById("banner").innerHTML = "You have already logged out"
-                            document.getElementById("banner").classList.add("error");
+                            
                         }
                     })
                     .catch(err => {
-                        console.log(err)
-                        document.getElementById("banner").style.backgroundColor = "red";
-                        document.getElementById("banner").style.display = "block";
-                        document.getElementById("banner").innerHTML = "It's on us! There was some error"
-                        document.getElementById("banner").classList.add("error");
+                        console.log(err);
                     })
             })
+
 
 
 
