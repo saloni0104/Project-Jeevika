@@ -50,7 +50,7 @@
                         aria-expanded="false">My Profile</button>
 
                     <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" style="word-wrap: break-word" href="#viewprofile" data-toggle="modal"
+                        <a class="dropdown-item" style="word-wrap: break-word" href="#viewprofile" id="profile" data-toggle="modal"
                             data-target="#exampleModal">View Profile</a>
                         <a class="dropdown-item" style="word-wrap: break-word" href="" id="logout">Logout</a>
                     </div>
@@ -290,8 +290,8 @@
                                                 src="https://d19m59y37dris4.cloudfront.net/university/1-1-1/img/teacher-4.jpg"
                                                 alt="..." width="130" class="rounded mb-2 img-thumbnail"></div>
                                         <div class="media-body mb-5 text-white" style="margin-top: 20px;">
-                                            <h4 class="mt-0 mb-0" style="padding: 5px;">Name of Organisation</h4>
-                                            <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i>Location</p>
+                                            <h4 class="mt-0 mb-0" style="padding: 5px;" id="pr_nameoforg">Name of Organisation</h4>
+                                            <p class="small mb-4"> <i class="fa fa-map-marker mr-2" id="pr_location"></i>Location</p>
                                         </div>
                                     </div>
                                 </div>
@@ -301,15 +301,15 @@
                                 <div class="py-4 px-4">
                                     <div class="d-flex align-items-center justify-content-between mb-3">
                                         <h5 class="mb-0">Email</h5>
-                                        <h6 class="btn btn-link text-muted">My Email</h6>
+                                        <h6 class="btn btn-link text-muted" id="pr_email">My Email</h6>
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between mb-3">
                                         <h5 class="mb-0">Phone no.</h5>
-                                        <h6 class="btn btn-link text-muted">Phone</h6>
+                                        <h6 class="btn btn-link text-muted" id="pr_phone">Phone</h6>
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between mb-3">
                                         <h5 class="mb-0">Areas catered</h5>
-                                        <h6 class="btn btn-link text-muted">Areas</h6>
+                                        <h6 class="btn btn-link text-muted" id="pr_area">Areas</h6>
                                     </div>
 
                                 </div>
@@ -318,7 +318,7 @@
                                     <ul class="list-inline mb-0">
                                         <li class="list-inline-item">
                                             <h5 class="font-weight-bold mb-0 d-block text-center"> My Website</h5><a
-                                                href="#" class="btn btn-link text-muted">Open link</a>
+                                                href="#" class="btn btn-link text-muted" id="pr_link">Open link</a>
                                         </li>
 
                                     </ul>
@@ -330,7 +330,7 @@
                                         <h5 class="mb-3">Description</h5>
                                         <div class="p-4 bg-light rounded shadow-sm"
                                             style="background-color: gainsboro;">
-                                            <p class="font-italic mb-0">Lorem ipsum dolor sit amet, consectetur
+                                            <p class="font-italic mb-0" id="pr_desc">Lorem ipsum dolor sit amet, consectetur
                                                 adipisicing
                                                 elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                                 Ut
@@ -379,7 +379,6 @@
                         return res.json()
                     })
                     .then(res => {
-                        console.log(res)
                         if (res.message === "Organization logged out") {
                             document.getElementById("banner").style.backgroundColor = "green";
                             document.getElementById("banner").style.display = "block";
@@ -401,6 +400,40 @@
                         document.getElementById("banner").style.display = "block";
                         document.getElementById("banner").innerHTML = "It's on us! There was some error"
                         document.getElementById("banner").classList.add("error");
+                    })
+            });
+
+
+            //VIEW PROFILE JS
+            document.getElementById("profile").addEventListener("click", function (e) {
+                e.preventDefault()
+                let token = localStorage.getItem("token");
+                fetch("https://crack-corona-hack-backend.herokuapp.com/app/org/details/", {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                })
+                    .then(res => {
+                        return res.json()
+                    })
+                    .then(res => {
+                        console.log(res);
+                        if (res.message === "Organization details") {
+                            document.getElementById("pr_nameoforg").value = res.Organization.org_name;
+                            document.getElementById("pr_location").value = res.Organization.address;
+                            document.getElementById("pr_link").value = res.Organization.web_link;
+                            document.getElementById("pr_desc").value = res.Organization.description;
+                            document.getElementById("pr_email").value = res.Organization.email;
+                            document.getElementById("pr_phone").value = res.Organization.phone_no;
+                            document.getElementById("pr_area").value = res.Organization.areas_catered;
+                        } else {
+                            
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err);
                     })
             })
 
