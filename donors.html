@@ -528,39 +528,43 @@
       });
 
       document.getElementById("logout").addEventListener("click", function (e) {
-        let token = (localStorage.getItem("token"));
-        fetch("https://crack-corona-hack-backend.herokuapp.com/app/user/logout/", {
-            method: 'GET',
-            headers: new Headers({
-               'Authorization': `Bearer ${token}`
-               }),
-          })
-            .then(res => {
-              return res.json()
+                e.preventDefault()
+                let token = localStorage.getItem("token");
+                fetch("https://crack-corona-hack-backend.herokuapp.com/app/user/logout", {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                })
+                    .then(res => {
+                        return res.json()
+                    })
+                    .then(res => {
+                        console.log(res)
+                        if (res.message === "User logged out") {
+                            document.getElementById("banner").style.backgroundColor = "green";
+                            document.getElementById("banner").style.display = "block";
+                            document.getElementById("banner").innerHTML = "You have successfully logged out!";
+                            document.getElementById("banner").classList.add("error");
+                            setTimeout(() => {
+                                window.location.href = "index.html";
+                            }, 2500)
+                        } else {
+                            document.getElementById("banner").style.backgroundColor = "red";
+                            document.getElementById("banner").style.display = "block";
+                            document.getElementById("banner").innerHTML = "You have already logged out"
+                            document.getElementById("banner").classList.add("error");
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err)
+                        document.getElementById("banner").style.backgroundColor = "red";
+                        document.getElementById("banner").style.display = "block";
+                        document.getElementById("banner").innerHTML = "It's on us! There was some error"
+                        document.getElementById("banner").classList.add("error");
+                    })
             })
-            .then(res => {
-              if (res.Details.token) {
-                document.getElementById("banner").style.backgroundColor = "green";
-                document.getElementById("banner").style.display = "block";
-                document.getElementById("banner").innerHTML = "You have successfully logged out!";
-                document.getElementById("banner").classList.add("error");
-                setTimeout(() => {
-                  window.location.href = "index.html";
-                }, 2500)
-              } else {
-                document.getElementById("banner").style.backgroundColor = "red";
-                document.getElementById("banner").style.display = "block";
-                document.getElementById("banner").innerHTML = "Unexpected error occurred"
-                document.getElementById("banner").classList.add("error");
-              }
-            })
-            .catch(err => {
-              document.getElementById("banner").style.backgroundColor = "red";
-              document.getElementById("banner").style.display = "block";
-              document.getElementById("banner").innerHTML = "It's on us! There was some error"
-              document.getElementById("banner").classList.add("error");
-            })
-      })
+
 
 
     };</script>
