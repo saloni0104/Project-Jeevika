@@ -539,7 +539,7 @@
               return res.json()
             })
             .then(res => {
-              if (res.Details.email) {
+              if (res.Details.token) {
                 document.getElementById("banner").style.backgroundColor = "green";
                 document.getElementById("banner").style.display = "block";
                 document.getElementById("banner").innerHTML = "You have successfully logged out!";
