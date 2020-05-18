@@ -18,7 +18,11 @@
 <body
     style="background-image: url('images/ngo-main.jpg');background-repeat: no-repeat;background-position: center; background-attachment: fixed;  background-size:cover;">
 
+    <div class="container-fluid" id="banner" style="position: fixed; z-index: 100;">
+    </div>
+
     <!--NAVBAR-->
+
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="navbar-brand">Navbar</div>
@@ -62,7 +66,7 @@
 
 
     <div class="container">
-
+        
         <!--MAIN CONTENT FOR TABS-->
 
         <div class="tab-content">
@@ -363,9 +367,9 @@
         window.onload = function () {
 
             document.getElementById("logout").addEventListener("click", function (e) {
+                e.preventDefault()
                 let token = localStorage.getItem("token");
-                fetch("https://crack-corona-hack-backend.herokuapp.com/app/org/logout/", {
-                    method: 'GET',
+                fetch("https://crack-corona-hack-backend.herokuapp.com/app/org/logout", {
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`
@@ -375,7 +379,8 @@
                         return res.json()
                     })
                     .then(res => {
-                        if (res.Details.token) {
+                        console.log(res)
+                        if (res.message === "Organization logged out") {
                             document.getElementById("banner").style.backgroundColor = "green";
                             document.getElementById("banner").style.display = "block";
                             document.getElementById("banner").innerHTML = "You have successfully logged out!";
@@ -386,7 +391,7 @@
                         } else {
                             document.getElementById("banner").style.backgroundColor = "red";
                             document.getElementById("banner").style.display = "block";
-                            document.getElementById("banner").innerHTML = "Unexpected error occurred"
+                            document.getElementById("banner").innerHTML = "You have already logged out"
                             document.getElementById("banner").classList.add("error");
                         }
                     })
