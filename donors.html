@@ -566,36 +566,33 @@
 
       //VIEW PROFILE JS
       document.getElementById("profile").addEventListener("click", function (e) {
-                e.preventDefault()
-                let token = localStorage.getItem("token");
-                fetch("https://crack-corona-hack-backend.herokuapp.com/app/user/details/", {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    },
-                })
-                    .then(res => {
-                        return res.json()
-                    })
-                    .then(res => {
-                        console.log(res);
-                        if (res.message === "User details") {
-                            document.getElementById("pr_nameofuser").value = res.User.username;
-                            document.getElementById("pr_location").value = res.User.address;
-                            document.getElementById("pr_email").value = res.User.email;
-                            document.getElementById("pr_phone").value = res.User.phone_no;
-                        } else {
-                            
-                        }
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    })
-            })
+        e.preventDefault()
+        let token = localStorage.getItem("token");
+        fetch("https://crack-corona-hack-backend.herokuapp.com/app/user/details/", {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+        })
+          .then(res => {
+            return res.json()
+          })
+          .then(res => {
+            console.log(res);
+            if (res.message === "User details") {
+              document.getElementById("pr_nameofuser").value = res.User.username;
+              document.getElementById("pr_location").value = res.User.address;
+              document.getElementById("pr_email").value = res.User.email;
+              document.getElementById("pr_phone").value = res.User.phone_no;
+            } else {
 
-
-
+            }
+          })
+          .catch(err => {
+            console.log(err);
+          })
+      })
 
     };</script>
 
