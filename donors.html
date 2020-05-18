@@ -58,7 +58,7 @@
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" style="word-wrap: break-word" href="#viewprofile" data-toggle="modal"
               data-target="#exampleModal">View Profile</a>
-            <a class="dropdown-item" style="word-wrap: break-word" href="">Logout</a>
+            <a class="dropdown-item" style="word-wrap: break-word" href="" id="logout">Logout</a>
           </div>
         </div>
       </form>
@@ -432,6 +432,7 @@
   <script>
 
     window.onload = function () {
+
       document.getElementById("sub").addEventListener("click", function (e) {
 
         var itemname = document.getElementById("itemname").value;
@@ -524,7 +525,44 @@
               document.getElementById("sub").value = "Submit"
             })
         }
+      });
+
+      document.getElementById("logout").addEventListener("click", function (e) {
+        let token = (localStorage.getItem("token"));
+        fetch("https://crack-corona-hack-backend.herokuapp.com/app/user/logout/", {
+            method: 'GET',
+            headers: new Headers({
+               'Authorization': `Bearer ${token}`
+               }),
+          })
+            .then(res => {
+              return res.json()
+            })
+            .then(res => {
+              if (res.Details.email) {
+                document.getElementById("banner").style.backgroundColor = "green";
+                document.getElementById("banner").style.display = "block";
+                document.getElementById("banner").innerHTML = "You have successfully logged out!";
+                document.getElementById("banner").classList.add("error");
+                setTimeout(() => {
+                  window.location.href = "index.html";
+                }, 2500)
+              } else {
+                document.getElementById("banner").style.backgroundColor = "red";
+                document.getElementById("banner").style.display = "block";
+                document.getElementById("banner").innerHTML = "Unexpected error occurred"
+                document.getElementById("banner").classList.add("error");
+              }
+            })
+            .catch(err => {
+              document.getElementById("banner").style.backgroundColor = "red";
+              document.getElementById("banner").style.display = "block";
+              document.getElementById("banner").innerHTML = "It's on us! There was some error"
+              document.getElementById("banner").classList.add("error");
+            })
       })
+
+
     };</script>
 
 </body>
