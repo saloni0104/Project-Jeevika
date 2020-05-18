@@ -55,13 +55,13 @@ window.onload = function () {
             .then(res => {
                 console.log(res);
                 if (res.message === "Organization details") {
-                    document.getElementById("pr_nameoforg").value = res.Organization.org_name;
-                    document.getElementById("pr_location").value = res.Organization.address;
-                    document.getElementById("pr_link").value = res.Organization.web_link;
-                    document.getElementById("pr_desc").value = res.Organization.description;
-                    document.getElementById("pr_email").value = res.Organization.email;
-                    document.getElementById("pr_phone").value = res.Organization.phone_no;
-                    document.getElementById("pr_area").value = res.Organization.areas_catered;
+                    document.getElementById("pr_nameoforg").innerHTML = res.Organization.org_name;
+                    document.getElementById("pr_location").innerHTML = res.Organization.address;
+                    document.getElementById("pr_link").innerHTML = res.Organization.web_link;
+                    document.getElementById("pr_desc").innerHTML = res.Organization.description;
+                    document.getElementById("pr_email").innerHTML = res.Organization.email;
+                    document.getElementById("pr_phone").innerHTML = res.Organization.phone_no;
+                    document.getElementById("pr_area").innerHTML = res.Organization.areas_catered;
                 } else {
                     
                 }

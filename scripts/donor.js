@@ -149,10 +149,10 @@ window.onload = function () {
         .then(res => {
           console.log(res);
           if (res.message === "User details") {
-            document.getElementById("pr_nameofuser").value = res.User.username;
-            document.getElementById("pr_location").value = res.User.address;
-            document.getElementById("pr_email").value = res.User.email;
-            document.getElementById("pr_phone").value = res.User.phone_no;
+            document.getElementById("pr_nameofuser").innerHTML = res.User.username;
+            document.getElementById("pr_location").innerHTML = res.User.address;
+            document.getElementById("pr_email"). innerHTML = res.User.email;
+            document.getElementById("pr_phone"). innerHTML = res.User.phone_no;
           } else {
 
           }
