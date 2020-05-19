@@ -229,4 +229,40 @@ window.onload = function () {
 
   })
 
+  // -----------------------------------------------------------------------------------------------------------------------
+
+  // VIEW HELP PROGRAMS JS
+
+  document.getElementById("help_programs").addEventListener("click", function (e) {
+    e.preventDefault()
+    fetch("https://crack-corona-hack-backend.herokuapp.com/app/all_help_prg/", {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(res => {
+        return res.json()
+      })
+      .then(res => {
+
+        if (res.message === "Help Programs Found") {
+          console.log(res);
+          
+          //document.getElementById("nameofitem").innerHTML = res.Donations[0].item_name;
+          //document.getElementById("quanofitem").innerHTML = res.Donations[0].quantity;
+          //document.getElementById("descofitem").innerHTML = res.Donations[0].description;
+          
+        } else {
+
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      })
+
+
+  })
+
+
 };
