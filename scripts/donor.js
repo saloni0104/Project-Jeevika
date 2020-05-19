@@ -264,5 +264,39 @@ window.onload = function () {
 
   })
 
+  //----------------------------------------------------------------------------------------------------------------------------------
+
+  // VIEW MESSAGES JS
+
+  document.getElementById("viewmessage").addEventListener("click", function (e) {
+    e.preventDefault()
+    let token = localStorage.getItem("token");
+    fetch("https://crack-corona-hack-backend.herokuapp.com/app/view_messages/", {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+    })
+      .then(res => {
+        return res.json()
+      })
+      .then(res => {
+
+        if (res.message === "Donations found") {
+          console.log(res);
+          //document.getElementById("pr_nameofuser").innerHTML = res.User.username;
+          //document.getElementById("pr_location").innerHTML = res.User.address;
+          //document.getElementById("pr_email").innerHTML = res.User.email;
+          //document.getElementById("pr_phone").innerHTML = res.User.phone_no;
+        } else {
+
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  })
+
 
 };
