@@ -212,9 +212,11 @@ window.onload = function () {
       .then(res => {
 
         if (res.message === "Donations Found") {
-          document.getElementById("nameofitem").innerHTML = res.Donations.item_name;
-          document.getElementById("quanofitem").innerHTML = res.Donations.quantity;
-          document.getElementById("descofitem").innerHTML = res.Donations.description;
+          console.log(res);
+          
+          document.getElementById("nameofitem").innerHTML = res.Donations[0].item_name;
+          document.getElementById("quanofitem").innerHTML = res.Donations[0].quantity;
+          document.getElementById("descofitem").innerHTML = res.Donations[0].description;
           
         } else {
 
