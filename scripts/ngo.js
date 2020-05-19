@@ -203,7 +203,7 @@ window.onload = function () {
 
   // VIEW HELP PROGRAMS JS
 
-  document.getElementById("help_programs").addEventListener("click", function (e) {
+  document.getElementById("ngo_help_programs").addEventListener("click", function (e) {
     e.preventDefault()
     fetch("https://crack-corona-hack-backend.herokuapp.com/app/all_help_prg/", {
       method: 'GET',
