@@ -52,6 +52,8 @@ body {
     width:100%;
 }
 
+
+
 *{
     margin: 0;
     padding:0;
@@ -191,6 +193,13 @@ body {
         width:40%
     }
  }
+
+ @media only screen and (max-width: 768px){
+    ::placeholder {
+        font-size: 11px;
+    }
+ }
+
 
 
 
