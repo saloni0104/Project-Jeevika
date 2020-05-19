@@ -1,5 +1,6 @@
 window.onload = function () {
 
+  //WELCOME USER
   let token = localStorage.getItem("token");
   fetch("https://crack-corona-hack-backend.herokuapp.com/app/user/details/", {
     method: 'GET',
@@ -21,6 +22,8 @@ window.onload = function () {
     .catch(err => {
       console.log(err);
     })
+
+    // -----------------------------------------------------------------------------------------------------------------------
 
     //ADD DONATIONS JS
   document.getElementById("sub").addEventListener("click", function (e) {
@@ -117,6 +120,8 @@ window.onload = function () {
     }
   });
 
+  // -----------------------------------------------------------------------------------------------------------------------
+
   //LOGOUT JS
   document.getElementById("logout").addEventListener("click", function (e) {
     e.preventDefault()
@@ -156,6 +161,8 @@ window.onload = function () {
       })
   });
 
+  // -----------------------------------------------------------------------------------------------------------------------
+
   //VIEW PROFILE JS
   document.getElementById("profile").addEventListener("click", function (e) {
     e.preventDefault()
@@ -184,6 +191,40 @@ window.onload = function () {
       .catch(err => {
         console.log(err);
       })
+  })
+
+  // -----------------------------------------------------------------------------------------------------------------------
+
+  // VIEW DONATIONS JS
+
+  document.getElementById("viewdonationjs").addEventListener("click", function (e) {
+    let token = localStorage.getItem("token");
+    fetch("https://crack-corona-hack-backend.herokuapp.com/app/all_donations/", {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+    })
+      .then(res => {
+        return res.json()
+      })
+      .then(res => {
+
+        if (res.message === "Donations Found") {
+          document.getElementById("nameofitem").innerHTML = res.Donations.item_name;
+          document.getElementById("quanofitem").innerHTML = res.Donations.quantity;
+          document.getElementById("descofitem").innerHTML = res.Donations.description;
+          
+        } else {
+
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      })
+
+
   })
 
 };
