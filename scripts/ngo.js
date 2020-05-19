@@ -1,6 +1,41 @@
-//LOGOUT JS
+
 
 window.onload = function () {
+
+  //VIEW DONATIONS JS
+  
+    let token = localStorage.getItem("token");
+    fetch("https://crack-corona-hack-backend.herokuapp.com/app/all_donations/", {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+    })
+      .then(res => {
+        return res.json()
+      })
+      .then(res => {
+
+        if (res.message === "Donations Found") {
+          console.log(res);
+          
+          //document.getElementById("nameofitem").innerHTML = res.Donations[0].item_name;
+          //document.getElementById("quanofitem").innerHTML = res.Donations[0].quantity;
+          //document.getElementById("descofitem").innerHTML = res.Donations[0].description;
+          
+        } else {
+
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      })
+
+      //--------------------------------------------------------------------------------------------------------------------------
+
+  //LOGOUT JS
+
 
   document.getElementById("logout").addEventListener("click", function (e) {
     e.preventDefault()
@@ -241,7 +276,7 @@ window.onload = function () {
 
   // VIEW DONATIONS JS
 
-  document.getElementById("viewdonationjs").addEventListener("click", function (e) {
+  window.addEventListener("onload", function (e) {
     let token = localStorage.getItem("token");
     fetch("https://crack-corona-hack-backend.herokuapp.com/app/all_donations/", {
       method: 'GET',
