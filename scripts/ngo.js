@@ -1,3 +1,5 @@
+//LOGOUT JS
+
 window.onload = function () {
 
     document.getElementById("logout").addEventListener("click", function (e) {
@@ -78,6 +80,7 @@ window.onload = function () {
     //ADD HELP PROGRAMME JS
 
     document.getElementById("prsub").addEventListener("click", function (e) {
+        e.preventDefault()
 
         var progname = document.getElementById("progname").value;
         var progdesc = document.getElementById("progdesc").value;
@@ -141,45 +144,49 @@ window.onload = function () {
         }
         else {
           console.log("Validated")
-          document.getElementById("sub").value = "Loading..."
+          document.getElementById("prsub").value = "Loading..."
           let token = (localStorage.getItem("token"));
-          fetch("https://crack-corona-hack-backend.herokuapp.com/app/donation/", {
+          fetch("https://crack-corona-hack-backend.herokuapp.com/app/help_prg/", {
             method: 'POST',
             headers: new Headers({
               'content-type': 'application/json',
               'Authorization': `Bearer ${token}`
             }),
             body: JSON.stringify({
-              item_name: itemname,
-              quantity: quantity,
-              description: description
+                    prg_name:progname,
+                    description:progdesc,
+                    aid_provided:progaid,
+                    city:progcity,
+                    address:progaddr
             }),
           })
             .then(res => {
-              return res.json()
+              return res.json();
+              console.log(res);
             })
             .then(res => {
+                console.log(res);
               if (res.message.id) {
                 document.getElementById("banner").style.backgroundColor = "green";
                 document.getElementById("banner").style.display = "block";
                 document.getElementById("banner").innerHTML = "You help programme has been successfully added!!";
                 document.getElementById("banner").classList.add("error");
-                document.getElementById("sub").value = "Submit";
+                document.getElementById("prsub").value = "Submit";
                 setTimeout(() => {
-                  window.location.href = "donors.html";
+                  window.location.href = "ngo.html";
                 }, 2500)
               } else if (res.err == "User already exist") {
                 document.getElementById("banner").style.backgroundColor = "red";
                 document.getElementById("banner").style.display = "block";
                 document.getElementById("banner").innerHTML = "User already exist!! Try signing in."
                 document.getElementById("banner").classList.add("error");
-                document.getElementById("sub").value = "Submit"
+                document.getElementById("prsub").value = "Submit"
               } else {
                 document.getElementById("banner").style.backgroundColor = "red";
                 document.getElementById("banner").style.display = "block";
                 document.getElementById("banner").innerHTML = "Unexpected error occurred"
                 document.getElementById("banner").classList.add("error");
-                document.getElementById("sub").value = "Submit"
+                document.getElementById("prsub").value = "Submit"
               }
             })
             .catch(err => {
@@ -187,7 +194,7 @@ window.onload = function () {
               document.getElementById("banner").style.display = "block";
               document.getElementById("banner").innerHTML = "It's on us! There was some error"
               document.getElementById("banner").classList.add("error");
-              document.getElementById("sub").value = "Submit"
+              document.getElementById("prsub").value = "Submit"
             })
         }
       });

@@ -12,6 +12,13 @@
     <title>Organisation Page</title>
 
 
+    <script>
+        function yellow(event) {
+          event.target.style.borderColor = "#f77f00";
+          event.target.placeholder = "";
+        }</script>
+
+
 </head>
 
 
@@ -125,7 +132,7 @@
                                 aria-labelledby="dropdownMenuButton">
                                 <form>
                                     <div class="form-group">
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"
+                                        <textarea class="form-control" id="exampleFormControlTextarea2" rows="5"
                                             cols="50" placeholder="Drop a message"></textarea>
                                         <button class="btn btn-outline-warning" type="submit">Submit</button>
                                     </div>
@@ -151,7 +158,7 @@
                                 aria-labelledby="dropdownMenuButton">
                                 <form>
                                     <div class="form-group">
-                                        <textarea class="form-control" rows="5" cols="50"
+                                        <textarea class="form-control" rows="5" cols="50" id="exampleFormControlTextarea3"
                                             placeholder="Drop a message"></textarea>
                                         <button class="btn btn-outline-warning" type="submit">Submit</button>
                                     </div>
@@ -386,7 +393,7 @@
                                         required>
                                 </div>
                                 <div style=" position:relative;" class="text-center">
-                                    <input class="login-button" type="submit" value="Submit" id="prsub">
+                                    <input class="login-button" type="submit" value="Submit" id="prsub" data-dismiss="modal">
                                 </div>
                                 </p>
                             </div>
