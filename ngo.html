@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/ngo.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -50,8 +51,8 @@
                         aria-expanded="false">My Profile</button>
 
                     <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" style="word-wrap: break-word" href="#viewprofile" id="profile" data-toggle="modal"
-                            data-target="#exampleModal">View Profile</a>
+                        <a class="dropdown-item" style="word-wrap: break-word" href="#viewprofile" id="profile"
+                            data-toggle="modal" data-target="#exampleModal">View Profile</a>
                         <a class="dropdown-item" style="word-wrap: break-word" href="" id="logout">Logout</a>
                     </div>
 
@@ -66,7 +67,7 @@
 
 
     <div class="container">
-        
+
         <!--MAIN CONTENT FOR TABS-->
 
         <div class="tab-content">
@@ -259,7 +260,8 @@
                             and see the impact!
                         </h5>
                         <div class="addprmain">
-                            <input type="button" class="btn btn-warning addpr" value="Add Program">
+                            <input type="button" class="btn btn-warning addpr" value="Add Program" data-toggle="modal"
+                                data-target="#addprModal">
                         </div>
 
 
@@ -290,8 +292,10 @@
                                                 src="https://d19m59y37dris4.cloudfront.net/university/1-1-1/img/teacher-4.jpg"
                                                 alt="..." width="130" class="rounded mb-2 img-thumbnail"></div>
                                         <div class="media-body mb-5 text-white" style="margin-top: 20px;">
-                                            <h4 class="mt-0 mb-0" style="padding: 5px;" id="pr_nameoforg">Name of Organisation</h4>
-                                            <p class="small mb-4"> <i class="fa fa-map-marker mr-2" id="pr_location"></i></p>
+                                            <h4 class="mt-0 mb-0" style="padding: 5px;" id="pr_nameoforg">Name of
+                                                Organisation</h4>
+                                            <p class="small mb-4"> <i class="fa fa-map-marker mr-2"
+                                                    id="pr_location"></i></p>
                                         </div>
                                     </div>
                                 </div>
@@ -330,7 +334,8 @@
                                         <h5 class="mb-3">Description</h5>
                                         <div class="p-4 bg-light rounded shadow-sm"
                                             style="background-color: gainsboro;">
-                                            <p class="font-italic mb-0" id="pr_desc">Lorem ipsum dolor sit amet, consectetur
+                                            <p class="font-italic mb-0" id="pr_desc">Lorem ipsum dolor sit amet,
+                                                consectetur
                                                 adipisicing
                                                 elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                                 Ut
@@ -345,6 +350,52 @@
                     </div>
                 </div>
             </div>
+
+            <!--ADD PROGRAM MODAL-->
+            <div class="modal fade" id="addprModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header " >
+                            <h5 class="modal-title " id="exampleModalLabel">Add Help Programmes</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="card-body">
+                                <p class="card-text ">
+                                <div class="text-center">
+                                    <input id="progname" placeholder="Programme Name" type="text" style="width: 60%;"  onfocus="yellow(event)"
+                                        required>
+                                </div>
+                                <div class="text-center">
+                                    <input id="progdesc" placeholder="Description" type="text" style="width: 60%;" onfocus="yellow(event)"
+                                        required>
+                                </div>
+                                <div class="text-center">
+                                    <input id="progaid" placeholder="Aid Provided" type="text" style="width: 60%;" onfocus="yellow(event)"
+                                        required>
+                                </div>
+                                <div class="text-center">
+                                    <input id="progcity" placeholder="City" type="text" style="width: 60%;" onfocus="yellow(event)"
+                                        required>
+                                </div>
+                                <div class="text-center">
+                                    <input id="progaddr" placeholder="Address" type="text" style="width: 60%;" onfocus="yellow(event)"
+                                        required>
+                                </div>
+                                <div style=" position:relative;" class="text-center">
+                                    <input class="login-button" type="submit" value="Submit" id="sub">
+                                </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </div>
 
