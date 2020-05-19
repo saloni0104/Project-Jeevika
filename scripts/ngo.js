@@ -199,6 +199,8 @@ window.onload = function () {
     }
   });
 
+
+
   //----------------------------------------------------------------------------------------------------------------------------
 
   // VIEW HELP PROGRAMS JS
@@ -223,6 +225,43 @@ window.onload = function () {
           //document.getElementById("quanofitem").innerHTML = res.Donations[0].quantity;
           //document.getElementById("descofitem").innerHTML = res.Donations[0].description;
 
+        } else {
+
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      })
+
+
+  })
+
+
+  // -----------------------------------------------------------------------------------------------------------------------
+
+  // VIEW DONATIONS JS
+
+  document.getElementById("viewdonationjs").addEventListener("click", function (e) {
+    let token = localStorage.getItem("token");
+    fetch("https://crack-corona-hack-backend.herokuapp.com/app/all_donations/", {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+    })
+      .then(res => {
+        return res.json()
+      })
+      .then(res => {
+
+        if (res.message === "Donations Found") {
+          console.log(res);
+          
+          document.getElementById("nameofitem").innerHTML = res.Donations[0].item_name;
+          document.getElementById("quanofitem").innerHTML = res.Donations[0].quantity;
+          document.getElementById("descofitem").innerHTML = res.Donations[0].description;
+          
         } else {
 
         }
@@ -266,7 +305,7 @@ window.onload = function () {
     }
     else {
       console.log("Validated")
-      document.getElementById("prsub").value = "Loading..."
+      document.getElementById("submitmessage").value = "Loading..."
       let token = (localStorage.getItem("token"));
       fetch("https://crack-corona-hack-backend.herokuapp.com/app/accept_donation/", {
         method: 'POST',
@@ -275,7 +314,7 @@ window.onload = function () {
           'Authorization': `Bearer ${token}`
         }),
         body: JSON.stringify({
-          donation_id: 1,
+          donation_id: 3,
           message: message
         }),
       })
@@ -289,9 +328,11 @@ window.onload = function () {
             document.getElementById("banner").style.display = "block";
             document.getElementById("banner").innerHTML = "You have successfully accepted the donation";
             document.getElementById("banner").classList.add("error");
-            document.getElementById("prsub").value = "Submit";
+            document.getElementsByClassName("accepted").value = "Accepted";
+            
             setTimeout(() => {
               window.location.href = "ngo.html";
+              
             }, 2500)
           } else {
             document.getElementById("banner").style.backgroundColor = "red";
@@ -307,6 +348,8 @@ window.onload = function () {
           document.getElementById("banner").innerHTML = "It's on us! There was some error"
           document.getElementById("banner").classList.add("error");
           document.getElementById("prsub").value = "Submit"
+
+          document.ge
         })
     }
   });
