@@ -133,30 +133,6 @@ body {
     margin-top:50px;
 }
 
-/*.checklist {
-    position: relative;
-    text-align: center;
-    border-style: solid;
-    border-width: 2px;
-    border-color: #1a4d0a;
-    display: inline-block;
-    padding:30px;
-    margin-left: 100px;
-    border-radius:15px;
-    
-  }
-
-  @media only screen and (max-width: 768px) {
-    .checklist {
-        text-align: center;
-        border-style: solid;
-        border-width: 2px;
-        border-color: #1a4d0a;
-        display: inline-block;
-        border-radius:15px;
-      }
-  } */
-  
 
 input:focus,
 select:focus,
