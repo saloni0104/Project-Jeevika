@@ -235,87 +235,14 @@ window.onload = function () {
           </div>`
           })
 
-          console.log(content)
           document.getElementById('viewdonationcards').innerHTML = content;
 
-
-          
         }
       })
       .catch(err => {
         console.log(err);
       })
-
-
   })
-
-
-
-  //SAMPLE
-
-
-  function getData() {
-    fetch('https://popularbreadapi.herokuapp.com/products', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-        'Authorization': 'Bearer ' + localStorage.getItem('pbToken')
-      }
-    })
-      .then((res) => {
-        return res.json()
-      })
-      .then((data) => {
-        console.log('Saloni data')
-        let content = "";
-        let serial = 0;
-        data.forEach(ele => {
-          let name = ele.name;
-          let url = ele.image;
-          serial = serial + 1;
-          content = content + `<tr>
-                <td>
-                  ${serial}
-                </td>
-                <td>
-                  <img src='${url}' style="width : 200px; height : auto">
-                </td>
-                <td>
-                  ${name}
-                </td>
-                <td>
-                  <button>Update</button>
-                </td>
-                <td>
-                  <button>Remove</button>
-                </td>
-              </tr>`
-        })
-        console.log(content)
-        document.getElementsByTagName('tbody')[0].innerHTML = content;
-      })
-      .catch((err) => {
-        Swal.fire(
-          'Oopppsss..',
-          'There was some internal error!',
-          'error'
-        )
-      })
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   // -----------------------------------------------------------------------------------------------------------------------
 
@@ -336,10 +263,33 @@ window.onload = function () {
 
         if (res.message === "Help Programs Found") {
           console.log(res);
+          let content = "";
+          let serial = 0;
+          res.HelpPrograms.forEach(ele => {
+            let prgname = ele.prg_name;
+            let orgname = ele.org_name;
+            let aidprovided = ele.aid_provided;
+            let city = ele.city;
+            let address = ele.address;
+            let description = ele.description;
+            serial = serial + 1;
+            content = content + `<div class="card prcard">
+            <div class="card-body">
+              <h5 class="card-title">${prgname}</h5>
+              <p class="card-text">
+                <div style="font-size: 18px; font-weight: bolder; padding-bottom: 10px;" id="quanofitem">${aidprovided}</div>
+                <div style="font-size: 18px; font-weight: bolder; padding-bottom: 10px;" id="quanofitem">${description}</div>
+                <div style="font-size: 18px; font-weight: bolder; padding-bottom: 10px;" id="quanofitem">${address}</div>
+                <div style="font-size: 18px; font-weight: bolder; padding-bottom: 10px;" id="quanofitem">${city}</div>
+              </p>
+            </div>
+            <div class="card-body">
+              <a href="#" class="card-link" style="color:#f77f00; font-weight:bolder">${orgname}</a>
+            </div>
+          </div>`
+          })
 
-          //document.getElementById("nameofitem").innerHTML = res.Donations[0].item_name;
-          //document.getElementById("quanofitem").innerHTML = res.Donations[0].quantity;
-          //document.getElementById("descofitem").innerHTML = res.Donations[0].description;
+          document.getElementById('viewhelpprogrammes').innerHTML = content;
 
         } else {
 
