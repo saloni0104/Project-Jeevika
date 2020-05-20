@@ -46,6 +46,7 @@
     margin: 0;
     padding:0;
     box-sizing: border-box;
+    font-family: 'Arima Madurai', cursive;
 }
 
 body {
@@ -54,6 +55,7 @@ body {
     -moz-outline : none;
     -ms-outline : none;
     -o-outline : none;
+    font-family: 'Rancho', cursive;
     
 }
 
@@ -99,7 +101,6 @@ body {
 .index-button{
     width: 60%;
     border-radius: 10px;
-    
 
 }
 
@@ -110,7 +111,7 @@ body {
     text-align: center;
     padding: 30px;
     font-weight: bolder;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Arima Madurai', cursive;
 }
 
 .description{
@@ -119,7 +120,7 @@ body {
     text-align: center;
     padding: 20px;
     font-weight: bolder;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Arima Madurai', cursive;
 }
 
 /*HOME CSS ENDS */
@@ -199,6 +200,12 @@ input:hover{
     .login-signup-title{
         color: gainsboro;
         font-size: 30px;
+    }
+
+    .index-button{
+        width: 100%;
+        border-radius: 10px;
+    
     }
 }
 
