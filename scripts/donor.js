@@ -273,7 +273,8 @@ window.onload = function () {
             let address = ele.address;
             let description = ele.description;
             serial = serial + 1;
-            content = content + `<div class="card prcard">
+            content = content + `
+            <div class="card prcard">
             <div class="card-body">
               <h5 class="card-title">${prgname}</h5>
               <p class="card-text">

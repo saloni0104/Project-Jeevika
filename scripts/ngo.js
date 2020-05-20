@@ -3,34 +3,34 @@
 window.onload = function () {
 
   //VIEW DONATIONS JS
-  
-    let token = localStorage.getItem("token");
-    fetch("https://crack-corona-hack-backend.herokuapp.com/app/all_donations/", {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      },
+
+  let token = localStorage.getItem("token");
+  fetch("https://crack-corona-hack-backend.herokuapp.com/app/all_donations/", {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+  })
+    .then(res => {
+      return res.json()
     })
-      .then(res => {
-        return res.json()
-      })
-      .then(res => {
+    .then(res => {
 
-        if (res.message === "Donations Found") {
-          console.log(res);
-          
-          //document.getElementById("nameofitem").innerHTML = res.Donations[0].item_name;
-          //document.getElementById("quanofitem").innerHTML = res.Donations[0].quantity;
-          //document.getElementById("descofitem").innerHTML = res.Donations[0].description;
-          
-        } else {
+      if (res.message === "Donations Found") {
+        console.log(res);
 
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      })
+        //document.getElementById("nameofitem").innerHTML = res.Donations[0].item_name;
+        //document.getElementById("quanofitem").innerHTML = res.Donations[0].quantity;
+        //document.getElementById("descofitem").innerHTML = res.Donations[0].description;
+
+      } else {
+
+      }
+    })
+    .catch(err => {
+      console.log(err);
+    })
 
   //--------------------------------------------------------------------------------------------------------------------------
 
@@ -236,7 +236,7 @@ window.onload = function () {
 
 
 
-  //----------------------------------------------------------------------------------------------------------------------------
+  // -----------------------------------------------------------------------------------------------------------------------
 
   // VIEW HELP PROGRAMS JS
 
@@ -255,10 +255,35 @@ window.onload = function () {
 
         if (res.message === "Help Programs Found") {
           console.log(res);
+          let content = "";
+          let serial = 0;
+          res.HelpPrograms.forEach(ele => {
+            let prgname = ele.prg_name;
+            let orgname = ele.org_name;
+            let aidprovided = ele.aid_provided;
+            let city = ele.city;
+            let address = ele.address;
+            let description = ele.description;
+            serial = serial + 1;
+            content = content + `
+            <div class="card" style="width:100%" id="viewhelpprograms">
+            <div class="card-body">
+                <h5 class="card-title">${prgname}</h5>
+                <p class="card-text">
+                <div style="font-size: 18px; font-weight: bolder; padding-bottom: 10px;" id="quanofitem">${aidprovided}</div>
+                <div style="font-size: 18px; font-weight: bolder; padding-bottom: 10px;" id="quanofitem">${description}</div>
+                <div style="font-size: 18px; font-weight: bolder; padding-bottom: 10px;" id="quanofitem">${city}</div>
+                <div style="font-size: 18px; font-weight: bolder; padding-bottom: 10px;" id="quanofitem">${address}</div>
+                </p>
+            </div>
+            <div class="card-body">
+                <a href="#" class="card-link">${orgname}</a>
+            </div>
+        </div>
+        `
+          })
 
-          //document.getElementById("nameofitem").innerHTML = res.Donations[0].item_name;
-          //document.getElementById("quanofitem").innerHTML = res.Donations[0].quantity;
-          //document.getElementById("descofitem").innerHTML = res.Donations[0].description;
+          document.getElementById('viewhelpprogrammes').innerHTML = content;
 
         } else {
 
@@ -270,7 +295,6 @@ window.onload = function () {
 
 
   })
-
 
   //----------------------------------------------------------------------------------------------------------------------------
 
@@ -325,10 +349,10 @@ window.onload = function () {
             document.getElementById("banner").innerHTML = "You have successfully accepted the donation";
             document.getElementById("banner").classList.add("error");
             document.getElementsByClassName("accepted").value = "Accepted";
-            
+
             setTimeout(() => {
               window.location.href = "ngo.html";
-              
+
             }, 2500)
           } else {
             document.getElementById("banner").style.backgroundColor = "red";
@@ -345,7 +369,7 @@ window.onload = function () {
           document.getElementById("banner").classList.add("error");
           document.getElementById("prsub").value = "Submit"
 
-          
+
         })
     }
   });

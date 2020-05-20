@@ -168,7 +168,7 @@ body {
 
 
  .prcard{
-    width:18rem;
+    width:100%;
  }
 
  @media only screen and (min-width: 768px){
