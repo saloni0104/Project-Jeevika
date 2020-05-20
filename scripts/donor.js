@@ -324,11 +324,25 @@ window.onload = function () {
 
         if (res.message === "Donations found") {
           console.log(res);
-          //document.getElementById("pr_nameofuser").innerHTML = res.User.username;
-          //document.getElementById("pr_location").innerHTML = res.User.address;
-          //document.getElementById("pr_email").innerHTML = res.User.email;
-          //document.getElementById("pr_phone").innerHTML = res.User.phone_no;
-        } else {
+          let content = "";
+          let serial = 0;
+          res.Donations.forEach(ele => {
+            let itemname = ele.item_name;
+            let orgname = ele.org_name;
+            let message = ele.message;
+            serial = serial + 1;
+            content = content + `<div class="media text-muted pt-3" style="width:100%; " id="messageinbox">
+            <div class="mr-2 rounded" style="width:32; height:32"> ${serial} </div>
+            <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+              <strong class="d-block text-gray-dark" style="color:black;font-size:15px;">${orgname}</strong>
+              <strong class="d-block text-gray-dark">${itemname}</strong>
+              ${message}
+            </p>
+          </div>
+          `
+          })
+
+          document.getElementById('messageinbox').innerHTML = content;
 
         }
       })

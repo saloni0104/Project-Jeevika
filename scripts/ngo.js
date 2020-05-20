@@ -334,7 +334,7 @@ window.onload = function () {
           'Authorization': `Bearer ${token}`
         }),
         body: JSON.stringify({
-          donation_id: 3,
+          donation_id: 5,
           message: message
         }),
       })
