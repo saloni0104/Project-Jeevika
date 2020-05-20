@@ -335,7 +335,7 @@ window.onload = function () {
             <div class="mr-2 rounded" style="width:32; height:32"> ${serial} </div>
             <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
               <strong class="d-block text-gray-dark" style="color:black;font-size:15px;">${orgname}</strong>
-              <strong class="d-block text-gray-dark">${itemname}</strong>
+              <strong class="d-block text-gray-dark" style="font-size:13px;">${itemname}</strong>
               ${message}
             </p>
           </div>

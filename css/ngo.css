@@ -205,6 +205,23 @@ body {
  }
 
 
+ @media only screen and (max-width: 768px){
+    #Donorbutton {
+        font-size: 12px;
+    }
+ }
+
+ @media only screen and (max-width: 992px){
+    #Donorbutton {
+        font-size: 12px;
+        width:100%
+    }
+ }
+
+
+
+ 
+
 
 
 
