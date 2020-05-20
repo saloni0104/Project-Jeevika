@@ -122,7 +122,8 @@ window.onload = function () {
               <div class="dropdown">
                   <button class="btn btn-warning my-2 my-sm-0 dropdown-toggle Donorbutton"
                       id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true"
-                      aria-expanded="false">Accept Donation</button>
+                      aria-expanded="false" style="background-color: #e49b0f;border-color: #f77f00;border-width: 3px;
+                      color:white;">Accept Donation</button>
                   <div class="dropdown-menu" style="padding-top: 3px; height: 4px;"
                       aria-labelledby="dropdownMenuButton">
                       <form>
