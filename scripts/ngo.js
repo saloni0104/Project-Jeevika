@@ -18,13 +18,47 @@ window.onload = function () {
     .then(res => {
 
       if (res.message === "Donations Found") {
+
         console.log(res);
+        let content = "";
+        let serial = 0;
+        res.Donations.forEach(ele => {
+          let username = ele.username;
+          let itemname = ele.item_name;
+          let quantity = ele.quantity;
+          let location = ele.location;
+          let description = ele.description;
+          serial = serial + 1;
+          content = content + `<div class="card" style="width:50%" id="viewdonationcards">
+          <h5 class="card-header" style="background-color: gainsboro;">${username}</h5>
+          <div class="card-body">
+              <p class="card-text">
+              <div>${itemname}</div>
+              <div>${quantity}</div>
+              <div>${location}</div>
+              <div>${description}</div>
+              </p>
+              <div class="dropdown">
+                  <button class="btn btn-warning my-2 my-sm-0 dropdown-toggle accepted"
+                      id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true"
+                      aria-expanded="false">Accept Donation</button>
+                  <div class="dropdown-menu" style="padding-top: 3px; height: 4px;"
+                      aria-labelledby="dropdownMenuButton">
+                      <form>
+                          <div class="form-group">
+                              <textarea class="form-control" id="Textarea1" rows="5" cols="50"
+                                  placeholder="Drop a message"></textarea>
+                              <button class="btn btn-outline-warning" type="submit"
+                                  id="submitmessage">Submit</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>`
+        })
 
-        //document.getElementById("nameofitem").innerHTML = res.Donations[0].item_name;
-        //document.getElementById("quanofitem").innerHTML = res.Donations[0].quantity;
-        //document.getElementById("descofitem").innerHTML = res.Donations[0].description;
-
-      } else {
+        document.getElementById('viewdonationcards').innerHTML = content;
 
       }
     })
@@ -266,7 +300,7 @@ window.onload = function () {
             let description = ele.description;
             serial = serial + 1;
             content = content + `
-            <div class="card prcard" id="viewhelpprograms">
+            <div class="card " style="width:200%; " id="viewhelpprograms">
             <div class="card-body">
                 <h5 class="card-title" style="color:#f77f00; font-weight:bolder">${prgname}</h5>
                 <p class="card-text">
