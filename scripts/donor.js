@@ -274,7 +274,7 @@ window.onload = function () {
             let description = ele.description;
             serial = serial + 1;
             content = content + `
-            <div class="card" style="width:100%; " id="viewhelpprograms">
+            <div class="card" id="viewhelpprograms">
             <div class="card-body">
                 <h5 class="card-title" style="color:#f77f00; font-weight:bolder">Programme name: ${prgname}</h5>
                 <p class="card-text">
@@ -334,8 +334,8 @@ window.onload = function () {
             content = content + `<div class="media text-muted pt-3" style="width:100%; " id="messageinbox">
             <div class="mr-2 rounded" style="width:32; height:32"> ${serial} </div>
             <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-              <strong class="d-block text-gray-dark" style="color:black;font-size:15px;">${orgname}</strong>
-              <strong class="d-block text-gray-dark" style="font-size:13px;">${itemname}</strong>
+              <strong class="d-block text-gray-dark" style="color:black;font-size:15px;">Organization Name: ${orgname}</strong>
+              <strong class="d-block text-gray-dark" style="font-size:13px; color: #f77f00">Item Name: ${itemname}</strong>
               ${message}
             </p>
           </div>

@@ -99,7 +99,6 @@ window.onload = function () {
     .then(res => {
 
       if (res.message === "Donations Found") {
-        console.log('thsi is data')
         console.log(res);
         let content = "";
         let serial = 0;
@@ -111,17 +110,17 @@ window.onload = function () {
           let location = ele.location;
           let description = ele.description;
           serial = serial + 1;
-          content = content + `<div class="card" style="width:50%" id="viewdonationcards">
-          <h5 class="card-header" style="background-color: gainsboro;">${username}</h5>
+          content = content + `<div class="card" id="viewdonationcards">
+          <h5 class="card-header" style="background-color: gainsboro;">Donor Name: ${username}</h5>
           <div class="card-body">
               <p class="card-text">
-              <div>${itemname}</div>
-              <div>${quantity}</div>
-              <div>${location}</div>
-              <div>${description}</div>
+              <div style="font-weight:bolder;padding:2px">Item Name: ${itemname}</div>
+              <div style="font-weight:bolder;padding:2px">Quantity: ${quantity}</div>
+              <div style="font-weight:bolder;padding:2px">Location: ${location}</div>
+              <div style="font-weight:bolder;padding:2px">Description: ${description}</div>
               </p>
               <div class="dropdown">
-                  <button class="btn btn-warning my-2 my-sm-0 dropdown-toggle accepted"
+                  <button class="btn btn-warning my-2 my-sm-0 dropdown-toggle Donorbutton"
                       id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true"
                       aria-expanded="false">Accept Donation</button>
                   <div class="dropdown-menu" style="padding-top: 3px; height: 4px;"

@@ -193,9 +193,15 @@ body {
         width:200%;
         text-align: center;
     }
+
+    #viewhelpprograms{
+        width: 150%
+    }
+
+    #viewdonationcards{
+        width: 80%
+    }
  }
-
-
 
 
  @media only screen and (max-width: 768px){
@@ -204,10 +210,21 @@ body {
     }
  }
 
+ .Donorbutton{
+    background-color: #e49b0f;
+    border-color: #f77f00;
+    border-width: 3px;
+    color:white;
+ }
+
 
  @media only screen and (max-width: 768px){
     .Donorbutton {
         font-size: 12px;
+    }
+
+    #viewdonationcards{
+        width: 90%
     }
  }
 
@@ -215,12 +232,15 @@ body {
     .Donorbutton {
         font-size: 12px;
         width:100%;
-        background-color: #e49b0f;
-        border-color: #f77f00;
-        border-width: 3px;
-        color:white;
+        
         
     }
+
+    #viewhelpprograms{
+        width: 100%
+    }
+
+   
  }
 
 

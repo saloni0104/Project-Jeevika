@@ -57,6 +57,15 @@ body {
     
 }
 
+
+.Donorbutton{
+    background-color: #e49b0f;
+    border-color: #f77f00;
+    border-width: 3px;
+    color:white;
+ }
+
+
 .dropdown-item{
     font-size:15px;
 }
@@ -90,6 +99,7 @@ body {
 .index-button{
     width: 60%;
     border-radius: 10px;
+    
 
 }
 
