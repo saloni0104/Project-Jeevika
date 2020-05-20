@@ -1,6 +1,6 @@
 window.onload = function () {
 
-  //WELCOME USER
+  //WELCOME USER    @Done
   let token = localStorage.getItem("token");
   fetch("https://crack-corona-hack-backend.herokuapp.com/app/user/details/", {
     method: 'GET',
@@ -25,7 +25,8 @@ window.onload = function () {
 
     // -----------------------------------------------------------------------------------------------------------------------
 
-    //ADD DONATIONS JS
+    //ADD DONATIONS JS  @Done
+    
   document.getElementById("sub").addEventListener("click", function (e) {
 
     var itemname = document.getElementById("itemname").value;
@@ -122,7 +123,8 @@ window.onload = function () {
 
   // -----------------------------------------------------------------------------------------------------------------------
 
-  //LOGOUT JS
+  //LOGOUT JS  @Done
+
   document.getElementById("logout").addEventListener("click", function (e) {
     e.preventDefault()
     let token = localStorage.getItem("token");
@@ -163,7 +165,8 @@ window.onload = function () {
 
   // -----------------------------------------------------------------------------------------------------------------------
 
-  //VIEW PROFILE JS
+  //VIEW PROFILE JS  @Done
+
   document.getElementById("profile").addEventListener("click", function (e) {
     e.preventDefault()
     let token = localStorage.getItem("token");

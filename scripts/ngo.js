@@ -32,9 +32,9 @@ window.onload = function () {
         console.log(err);
       })
 
-      //--------------------------------------------------------------------------------------------------------------------------
+  //--------------------------------------------------------------------------------------------------------------------------
 
-  //LOGOUT JS
+  //LOGOUT JS      @Done
 
 
   document.getElementById("logout").addEventListener("click", function (e) {
@@ -76,7 +76,8 @@ window.onload = function () {
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
-  //VIEW PROFILE JS
+  //VIEW PROFILE JS  @Done
+
   document.getElementById("profile").addEventListener("click", function (e) {
     e.preventDefault()
     let token = localStorage.getItem("token");
@@ -112,7 +113,7 @@ window.onload = function () {
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-  //ADD HELP PROGRAMME JS
+  //ADD HELP PROGRAMME JS   @Done
 
   document.getElementById("prsub").addEventListener("click", function (e) {
     e.preventDefault()
@@ -122,7 +123,6 @@ window.onload = function () {
     var progaid = document.getElementById("progaid").value;
     var progcity = document.getElementById("progcity").value;
     var progaddr = document.getElementById("progaddr").value;
-
 
 
     let status = [];
@@ -272,43 +272,6 @@ window.onload = function () {
   })
 
 
-  // -----------------------------------------------------------------------------------------------------------------------
-
-  // VIEW DONATIONS JS
-
-  window.addEventListener("onload", function (e) {
-    let token = localStorage.getItem("token");
-    fetch("https://crack-corona-hack-backend.herokuapp.com/app/all_donations/", {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      },
-    })
-      .then(res => {
-        return res.json()
-      })
-      .then(res => {
-
-        if (res.message === "Donations Found") {
-          console.log(res);
-          
-          document.getElementById("nameofitem").innerHTML = res.Donations[0].item_name;
-          document.getElementById("quanofitem").innerHTML = res.Donations[0].quantity;
-          document.getElementById("descofitem").innerHTML = res.Donations[0].description;
-          
-        } else {
-
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      })
-
-
-  })
-
-
   //----------------------------------------------------------------------------------------------------------------------------
 
   // ACCEPT DONATIONS JS
@@ -318,8 +281,6 @@ window.onload = function () {
     e.preventDefault()
 
     var message = document.getElementById("Textarea1").value;
-
-
 
 
     let status = [];
@@ -384,13 +345,10 @@ window.onload = function () {
           document.getElementById("banner").classList.add("error");
           document.getElementById("prsub").value = "Submit"
 
-          document.ge
+          
         })
     }
   });
-
-
-
 
 
 }
