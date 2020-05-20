@@ -274,20 +274,20 @@ window.onload = function () {
             let description = ele.description;
             serial = serial + 1;
             content = content + `
-            <div class="card prcard">
+            <div class="card" style="width:200%; " id="viewhelpprograms">
             <div class="card-body">
-              <h5 class="card-title">${prgname}</h5>
-              <p class="card-text">
+                <h5 class="card-title" style="color:#f77f00; font-weight:bolder">${prgname}</h5>
+                <p class="card-text">
                 <div style="font-size: 18px; font-weight: bolder; padding-bottom: 10px;" id="quanofitem">${aidprovided}</div>
                 <div style="font-size: 18px; font-weight: bolder; padding-bottom: 10px;" id="quanofitem">${description}</div>
-                <div style="font-size: 18px; font-weight: bolder; padding-bottom: 10px;" id="quanofitem">${address}</div>
                 <div style="font-size: 18px; font-weight: bolder; padding-bottom: 10px;" id="quanofitem">${city}</div>
-              </p>
+                <div style="font-size: 18px; font-weight: bolder; padding-bottom: 10px;" id="quanofitem">${address}</div>
+                </p>
             </div>
-            <div class="card-body">
-              <a href="#" class="card-link" style="color:#f77f00; font-weight:bolder">${orgname}</a>
+            <div class="card-body" style="background-color:grey; color:white" >
+                <a href="#" class="card-link"  >${orgname}</a>
             </div>
-          </div>`
+        </div>`
           })
 
           document.getElementById('viewhelpprogrammes').innerHTML = content;

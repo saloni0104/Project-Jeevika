@@ -166,30 +166,37 @@ body {
     }
  }
 
-
- .prcard{
-    width:100%;
+ @media only screen and (min-width: 600px){
+    .prcard{
+        width:100%;
+        
+    }
  }
 
  @media only screen and (min-width: 768px){
     .prcard{
-        width:70%;
-        margin-left: 100px;
+        width:100%;
+    
     }
  }
 
 
  @media only screen and (min-width: 992px){
     .prcard{
-        width:65%;
+        width:150%;
+        
     }
  }
 
- @media only screen and (min-width: 1200px){
+ @media only screen and (min-width: 993px){
     .prcard{
-        width:40%
+        width:200%;
+        text-align: center;
     }
  }
+
+
+
 
  @media only screen and (max-width: 768px){
     ::placeholder {

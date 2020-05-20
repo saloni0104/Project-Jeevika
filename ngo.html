@@ -14,8 +14,8 @@
 
     <script>
         function yellow(event) {
-          event.target.style.borderColor = "#f77f00";
-          event.target.placeholder = "";
+            event.target.style.borderColor = "#f77f00";
+            event.target.placeholder = "";
         }</script>
 
 
@@ -42,11 +42,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto nav " style="padding-left:20px; margin-left:20px;">
                 <li class="nav-item " style="padding-left:20px; margin-left:20px;">
-                    <a class="nav-link active" href="#accdonations" id="viewdonationjs" role="tab" data-toggle="tab">Accept
+                    <a class="nav-link active" href="#accdonations" id="viewdonationjs" role="tab"
+                        data-toggle="tab">Accept
                         Donations<span class="sr-only"></span></a>
                 </li>
                 <li class="nav-item" style="padding-left:20px; margin-left:20px;">
-                    <a class="nav-link" href="#helpprg" id="ngo_help_programs" role="tab" data-toggle="tab">Help Programs</a>
+                    <a class="nav-link" href="#helpprg" id="ngo_help_programs" role="tab" data-toggle="tab">Help
+                        Programs</a>
                 </li>
             </ul>
 
@@ -105,9 +107,10 @@
                                 aria-labelledby="dropdownMenuButton">
                                 <form>
                                     <div class="form-group">
-                                        <textarea class="form-control" id="Textarea1" rows="5"
-                                            cols="50" placeholder="Drop a message"></textarea>
-                                        <button class="btn btn-outline-warning" type="submit" id="submitmessage">Submit</button>
+                                        <textarea class="form-control" id="Textarea1" rows="5" cols="50"
+                                            placeholder="Drop a message"></textarea>
+                                        <button class="btn btn-outline-warning" type="submit"
+                                            id="submitmessage">Submit</button>
                                     </div>
                                 </form>
                             </div>
@@ -124,9 +127,9 @@
                         <div>Description</div>
                         </p>
                         <div class="dropdown">
-                            <button class="btn btn-warning my-2 my-sm-0 dropdown-toggle"
-                                id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">Accept Donation</button>
+                            <button class="btn btn-warning my-2 my-sm-0 dropdown-toggle" id="dropdownMenuButton"
+                                type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accept
+                                Donation</button>
 
                             <div class="dropdown-menu" style="padding-top: 3px; height: 4px;"
                                 aria-labelledby="dropdownMenuButton">
@@ -151,17 +154,17 @@
                         <div>Description</div>
                         </p>
                         <div class="dropdown">
-                            
-                                <button class="btn btn-warning text-center my-2 my-sm-0 dropdown-toggle"
+
+                            <button class="btn btn-warning text-center my-2 my-sm-0 dropdown-toggle"
                                 id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">Accept Donation</button>
-                                                        
+
                             <div class="dropdown-menu" style="padding-top: 3px; height: 4px;"
                                 aria-labelledby="dropdownMenuButton">
                                 <form>
                                     <div class="form-group">
-                                        <textarea class="form-control" rows="5" cols="50" id="exampleFormControlTextarea3"
-                                            placeholder="Drop a message"></textarea>
+                                        <textarea class="form-control" rows="5" cols="50"
+                                            id="exampleFormControlTextarea3" placeholder="Drop a message"></textarea>
                                         <button class="btn btn-outline-warning" type="submit">Submit</button>
                                     </div>
                                 </form>
@@ -186,31 +189,30 @@
 
 
                 <div class="container-fluid">
-                    
 
-                        <div class="row " style="background-color: red">
-                            <div style="background-color: gold;" id="viewhelpprogrammes">
-                            </div>
+                    <div class="row ">
+                        <div id="viewhelpprogrammes">
                         </div>
-                        
-                        
-                        
-                        <!--ADD PROGRAM BUTTON-->
+                    </div>
 
-                        <div class="row col-12">
-                            <h5 class="page2-heading col-12">Wish to be one of us? <br> Contribute by adding your
-                                programme
-                                and see the impact!
-                            </h5>
-                            <div class=" text-center">
-                                <input type="button" class="btn btn-warning addpr" style="font-weight: bolder; width: auto;" value="Add Your Programme" data-toggle="modal"
-                                    data-target="#addprModal">
-                            </div>
+
+
+                    <!--ADD PROGRAM BUTTON-->
+
+                    <div class="row col-12">
+                        <h5 class="page2-heading col-12">Wish to be one of us? <br> Contribute by adding your
+                            programme
+                            and see the impact!
+                        </h5>
+                        <div class=" text-center">
+                            <input type="button" class="btn btn-warning addpr" style="font-weight: bolder; width: auto;"
+                                value="Add Your Programme" data-toggle="modal" data-target="#addprModal">
                         </div>
-                        
+                    </div>
 
 
-    
+
+
 
                 </div>
 
@@ -301,7 +303,7 @@
                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-header " >
+                        <div class="modal-header ">
                             <h5 class="modal-title " id="exampleModalLabel">Add Help Programmes</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -311,27 +313,28 @@
                             <div class="card-body">
                                 <p class="card-text ">
                                 <div class="text-center">
-                                    <input id="progname" placeholder="Programme Name" type="text" style="width: 80%;"  onfocus="yellow(event)"
-                                        required>
+                                    <input id="progname" placeholder="Programme Name" type="text" style="width: 80%;"
+                                        onfocus="yellow(event)" required>
                                 </div>
                                 <div class="text-center">
-                                    <input id="progdesc" placeholder="Description" type="text" style="width: 80%;" onfocus="yellow(event)"
-                                        required>
+                                    <input id="progdesc" placeholder="Description" type="text" style="width: 80%;"
+                                        onfocus="yellow(event)" required>
                                 </div>
                                 <div class="text-center">
-                                    <input id="progaid" placeholder="Aid Provided" type="text" style="width: 80%;" onfocus="yellow(event)"
-                                        required>
+                                    <input id="progaid" placeholder="Aid Provided" type="text" style="width: 80%;"
+                                        onfocus="yellow(event)" required>
                                 </div>
                                 <div class="text-center">
-                                    <input id="progcity" placeholder="City" type="text" style="width: 80%;" onfocus="yellow(event)"
-                                        required>
+                                    <input id="progcity" placeholder="City" type="text" style="width: 80%;"
+                                        onfocus="yellow(event)" required>
                                 </div>
                                 <div class="text-center">
-                                    <input id="progaddr" placeholder="Address" type="text" style="width: 80%;" onfocus="yellow(event)"
-                                        required>
+                                    <input id="progaddr" placeholder="Address" type="text" style="width: 80%;"
+                                        onfocus="yellow(event)" required>
                                 </div>
                                 <div style=" position:relative;" class="text-center">
-                                    <input class="login-button" type="submit" value="Submit" id="prsub" data-dismiss="modal">
+                                    <input class="login-button" type="submit" value="Submit" id="prsub"
+                                        data-dismiss="modal">
                                 </div>
                                 </p>
                             </div>
