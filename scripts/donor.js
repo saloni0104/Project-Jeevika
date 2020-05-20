@@ -225,11 +225,11 @@ window.onload = function () {
             let description = ele.description;
             serial = serial + 1;
             content = content + `<div class="card" id="viewdonationcards">
-            <h5 class="card-header" style="background-color: gainsboro;" id="nameofitem">${itemname}</h5>
+            <h5 class="card-header" style="background-color: gainsboro; color: #f77f00" id="nameofitem">Item Name : ${itemname}</h5>
             <div class="card-body">
               <p class="card-text">
-              <div style="font-size: 18px; font-weight: bolder; padding-bottom: 10px;" id="quanofitem">${quantity}</div>
-              <div style="font-size: 18px;font-weight: bolder;" id="descofitem">${description}</div>
+              <div style="font-size: 18px; font-weight: bolder; padding-bottom: 10px;" id="quanofitem"> Quantity: ${quantity}</div>
+              <div style="font-size: 18px;font-weight: bolder;" id="descofitem"> Description: ${description}</div>
               </p>
             </div>
           </div>`
