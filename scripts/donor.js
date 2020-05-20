@@ -236,13 +236,10 @@ window.onload = function () {
           })
 
           console.log(content)
-          document.getElementById('viewdonationcards')[0].innerHTML = content;
+          document.getElementById('viewdonationcards').innerHTML = content;
 
 
-          //document.getElementById("nameofitem").innerHTML = res.Donations[0].item_name;
-          //document.getElementById("quanofitem").innerHTML = res.Donations[0].quantity;
-          //document.getElementById("descofitem").innerHTML = res.Donations[0].description;
-
+          
         }
       })
       .catch(err => {
