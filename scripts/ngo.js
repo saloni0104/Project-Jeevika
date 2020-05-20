@@ -1,4 +1,85 @@
 
+//----------------------------------------------------------------------------------------------------------------------------
+
+  // ACCEPT DONATIONS JS
+
+
+  function sendMessage(event) {
+    event.preventDefault()
+    let id = event.target.getAttribute('data-id');
+    console.log(id)
+  
+    var message = document.getElementById("Textarea1").value;
+
+
+    let status = [];
+
+
+    if (message.length <= 1) {
+      document.getElementById("Textarea1").style.borderColor = "red";
+      document.getElementById("Textarea1").value = "";
+      document.getElementById("Textarea1").placeholder = "Please enter valid message";
+      status.push("false")
+      document.getElementById("Textarea1").classList.add("red");
+    } else {
+      status.push("true")
+    }
+    if (status.includes("false")) {
+      console.log("There was some error while validating")
+      return false
+    }
+    else {
+      console.log("Validated")
+      document.getElementById("submitmessage").value = "Loading..."
+      let token = (localStorage.getItem("token"));
+      fetch("https://crack-corona-hack-backend.herokuapp.com/app/accept_donation/", {
+        method: 'POST',
+        headers: new Headers({
+          'content-type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }),
+        body: JSON.stringify({
+          donation_id: id,
+          message: message
+        }),
+      })
+        .then(res => {
+          return res.json();
+        })
+        .then(res => {
+          console.log(res);
+          if (res.message === "Donation accepted") {
+            document.getElementById("banner").style.backgroundColor = "green";
+            document.getElementById("banner").style.display = "block";
+            document.getElementById("banner").innerHTML = "You have successfully accepted the donation";
+            document.getElementById("banner").classList.add("error");
+            document.getElementsByClassName("accepted").value = "Accepted";
+
+            setTimeout(() => {
+              window.location.href = "ngo.html";
+
+            }, 2500)
+          } else {
+            document.getElementById("banner").style.backgroundColor = "red";
+            document.getElementById("banner").style.display = "block";
+            document.getElementById("banner").innerHTML = "Unexpected error occurred"
+            document.getElementById("banner").classList.add("error");
+            document.getElementById("prsub").value = "Submit"
+          }
+        })
+        .catch(err => {
+          document.getElementById("banner").style.backgroundColor = "red";
+          document.getElementById("banner").style.display = "block";
+          document.getElementById("banner").innerHTML = "It's on us! There was some error"
+          document.getElementById("banner").classList.add("error");
+          document.getElementById("prsub").value = "Submit"
+
+
+        })
+    }
+
+  }
+    
 
 window.onload = function () {
 
@@ -18,10 +99,11 @@ window.onload = function () {
     .then(res => {
 
       if (res.message === "Donations Found") {
-
+        console.log('thsi is data')
         console.log(res);
         let content = "";
         let serial = 0;
+  
         res.Donations.forEach(ele => {
           let username = ele.username;
           let itemname = ele.item_name;
@@ -48,7 +130,7 @@ window.onload = function () {
                           <div class="form-group">
                               <textarea class="form-control" id="Textarea1" rows="5" cols="50"
                                   placeholder="Drop a message"></textarea>
-                              <button class="btn btn-outline-warning" type="submit"
+                              <button data-id='${ele.id}' onclick="sendMessage(event)" class="btn btn-outline-warning" type="submit"
                                   id="submitmessage">Submit</button>
                           </div>
                       </form>
@@ -57,7 +139,6 @@ window.onload = function () {
           </div>
       </div>`
         })
-
         document.getElementById('viewdonationcards').innerHTML = content;
 
       }
@@ -330,83 +411,5 @@ window.onload = function () {
 
   })
 
-  //----------------------------------------------------------------------------------------------------------------------------
-
-  // ACCEPT DONATIONS JS
-
-
-  document.getElementById("submitmessage").addEventListener("click", function (e) {
-    e.preventDefault()
-
-    var message = document.getElementById("Textarea1").value;
-
-
-    let status = [];
-
-
-    if (message.length <= 1) {
-      document.getElementById("Textarea1").style.borderColor = "red";
-      document.getElementById("Textarea1").value = "";
-      document.getElementById("Textarea1").placeholder = "Please enter valid message";
-      status.push("false")
-      document.getElementById("Textarea1").classList.add("red");
-    } else {
-      status.push("true")
-    }
-    if (status.includes("false")) {
-      console.log("There was some error while validating")
-      return false
-    }
-    else {
-      console.log("Validated")
-      document.getElementById("submitmessage").value = "Loading..."
-      let token = (localStorage.getItem("token"));
-      fetch("https://crack-corona-hack-backend.herokuapp.com/app/accept_donation/", {
-        method: 'POST',
-        headers: new Headers({
-          'content-type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }),
-        body: JSON.stringify({
-          donation_id: 5,
-          message: message
-        }),
-      })
-        .then(res => {
-          return res.json();
-        })
-        .then(res => {
-          console.log(res);
-          if (res.message === "Donation accepted") {
-            document.getElementById("banner").style.backgroundColor = "green";
-            document.getElementById("banner").style.display = "block";
-            document.getElementById("banner").innerHTML = "You have successfully accepted the donation";
-            document.getElementById("banner").classList.add("error");
-            document.getElementsByClassName("accepted").value = "Accepted";
-
-            setTimeout(() => {
-              window.location.href = "ngo.html";
-
-            }, 2500)
-          } else {
-            document.getElementById("banner").style.backgroundColor = "red";
-            document.getElementById("banner").style.display = "block";
-            document.getElementById("banner").innerHTML = "Unexpected error occurred"
-            document.getElementById("banner").classList.add("error");
-            document.getElementById("prsub").value = "Submit"
-          }
-        })
-        .catch(err => {
-          document.getElementById("banner").style.backgroundColor = "red";
-          document.getElementById("banner").style.display = "block";
-          document.getElementById("banner").innerHTML = "It's on us! There was some error"
-          document.getElementById("banner").classList.add("error");
-          document.getElementById("prsub").value = "Submit"
-
-
-        })
-    }
-  });
-
-
+  
 }
