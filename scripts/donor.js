@@ -23,10 +23,10 @@ window.onload = function () {
       console.log(err);
     })
 
-    // -----------------------------------------------------------------------------------------------------------------------
+  // -----------------------------------------------------------------------------------------------------------------------
 
-    //ADD DONATIONS JS  @Done
-    
+  //ADD DONATIONS JS  @Done
+
   document.getElementById("sub").addEventListener("click", function (e) {
 
     var itemname = document.getElementById("itemname").value;
@@ -200,7 +200,7 @@ window.onload = function () {
 
   // VIEW DONATIONS JS
 
-  document.getElementById("viewdonationjs").addEventListener("click", function (e) {
+  document.getElementById("viewdonationjs").addEventListener("click", function getData(e) {
     let token = localStorage.getItem("token");
     fetch("https://crack-corona-hack-backend.herokuapp.com/app/all_donations/", {
       method: 'GET',
@@ -215,13 +215,33 @@ window.onload = function () {
       .then(res => {
 
         if (res.message === "Donations Found") {
+
           console.log(res);
-          
-          document.getElementById("nameofitem").innerHTML = res.Donations[0].item_name;
-          document.getElementById("quanofitem").innerHTML = res.Donations[0].quantity;
-          document.getElementById("descofitem").innerHTML = res.Donations[0].description;
-          
-        } else {
+          let content = "";
+          let serial = 0;
+          res.Donations.forEach(ele => {
+            let itemname = ele.item_name;
+            let quantity = ele.quantity;
+            let description = ele.description;
+            serial = serial + 1;
+            content = content + `<div class="card" id="viewdonationcards">
+            <h5 class="card-header" style="background-color: gainsboro;" id="nameofitem">${itemname}</h5>
+            <div class="card-body">
+              <p class="card-text">
+              <div style="font-size: 18px; font-weight: bolder; padding-bottom: 10px;" id="quanofitem">${quantity}</div>
+              <div style="font-size: 18px;font-weight: bolder;" id="descofitem">${description}</div>
+              </p>
+            </div>
+          </div>`
+          })
+
+          console.log(content)
+          document.getElementById('viewdonationcards')[0].innerHTML = content;
+
+
+          //document.getElementById("nameofitem").innerHTML = res.Donations[0].item_name;
+          //document.getElementById("quanofitem").innerHTML = res.Donations[0].quantity;
+          //document.getElementById("descofitem").innerHTML = res.Donations[0].description;
 
         }
       })
@@ -231,6 +251,74 @@ window.onload = function () {
 
 
   })
+
+
+
+  //SAMPLE
+
+
+  function getData() {
+    fetch('https://popularbreadapi.herokuapp.com/products', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        'Authorization': 'Bearer ' + localStorage.getItem('pbToken')
+      }
+    })
+      .then((res) => {
+        return res.json()
+      })
+      .then((data) => {
+        console.log('Saloni data')
+        let content = "";
+        let serial = 0;
+        data.forEach(ele => {
+          let name = ele.name;
+          let url = ele.image;
+          serial = serial + 1;
+          content = content + `<tr>
+                <td>
+                  ${serial}
+                </td>
+                <td>
+                  <img src='${url}' style="width : 200px; height : auto">
+                </td>
+                <td>
+                  ${name}
+                </td>
+                <td>
+                  <button>Update</button>
+                </td>
+                <td>
+                  <button>Remove</button>
+                </td>
+              </tr>`
+        })
+        console.log(content)
+        document.getElementsByTagName('tbody')[0].innerHTML = content;
+      })
+      .catch((err) => {
+        Swal.fire(
+          'Oopppsss..',
+          'There was some internal error!',
+          'error'
+        )
+      })
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // -----------------------------------------------------------------------------------------------------------------------
 
@@ -251,11 +339,11 @@ window.onload = function () {
 
         if (res.message === "Help Programs Found") {
           console.log(res);
-          
+
           //document.getElementById("nameofitem").innerHTML = res.Donations[0].item_name;
           //document.getElementById("quanofitem").innerHTML = res.Donations[0].quantity;
           //document.getElementById("descofitem").innerHTML = res.Donations[0].description;
-          
+
         } else {
 
         }
