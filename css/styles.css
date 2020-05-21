@@ -166,6 +166,7 @@ input{
     input {
         width:70%;
     }
+    
 }
 
 
@@ -231,3 +232,9 @@ a:hover{
     }
 }
 
+
+@media only screen and (max-width: 992px){
+    ::placeholder {
+        font-size: 13px;
+    }
+ }
