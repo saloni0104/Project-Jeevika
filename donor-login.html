@@ -13,6 +13,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Donor LogIn</title>
 
+    <style>
+        
+    </style>
+
     <script>
         function yellow(event) {
             event.target.style.borderColor = "#f77f00";
@@ -22,8 +26,7 @@
 
 </head>
 
-<body
-    style="background-image: url('images/donor-login.jpg');background-repeat: no-repeat;background-position: center;  background-size:cover; background-color:lightsteelblue; ">
+<body  id="donorlogin" style="background-image: url('images/donor-login-new.jpg');background-repeat: no-repeat;background-position: center;  background-size:cover; background-color:gray; width: 100%;">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="index.html"><img src="images/logonew.png"></a>
@@ -137,15 +140,15 @@
                     fetch("https://crack-corona-hack-backend.herokuapp.com/app/user/login/", {
                         method: 'POST',
                         headers: new Headers({ 'content-type': 'application/json' }),
-                        body: JSON.stringify ({
+                        body: JSON.stringify({
                             email: email,
                             password: password,
                         }),
                     })
-                    
-                    .then(function (response) {
-                                return response.json();
-                            })
+
+                        .then(function (response) {
+                            return response.json();
+                        })
                         .then(res => {
                             console.log(res)
                             if (res.User.token) {
