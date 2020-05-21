@@ -131,7 +131,7 @@ window.onload = function () {
                               <textarea class="form-control" id='${ele.id}' rows="5" cols="50"
                                   placeholder="Drop a message"></textarea>
                               <button data-id='${ele.id}' onclick="sendMessage(event)" class="btn btn-outline-warning" type="submit"
-                                  style="background-color: #e49b0f;border-color: #f77f00;border-width: 3px; margin-top:5px;
+                                  style="background-color: #e49b0f;border-color: #f77f00;border-width: 3px;
                                   color:white;">Submit</button>
                           </div>
                       </form>
