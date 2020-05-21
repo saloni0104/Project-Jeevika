@@ -383,7 +383,7 @@ window.onload = function () {
             content = content + `
             <div class="card " id="viewhelpprograms">
             <div class="card-body">
-                <h5 class="card-title" style="color:#f77f00; font-weight:bolder">Programme Name: ${prgname}</h5>
+                <h5 class="card-title" style="color:#f77f00; font-weight:bolder"> ${prgname}</h5>
                 <p class="card-text">
                 <div style="font-size: 18px; font-weight: bolder; padding-bottom: 10px;" id="quanofitem">Aid Provided: ${aidprovided}</div>
                 <div style="font-size: 18px; font-weight: bolder; padding-bottom: 10px;" id="quanofitem">Description: ${description}</div>
@@ -392,7 +392,7 @@ window.onload = function () {
                 </p>
             </div>
             <div class="card-body" style="background-color:grey; color:white" >
-                <a href="#" class="card-link">Org name: ${orgname}</a>
+                <a href="#" class="card-link">Organization: ${orgname}</a>
             </div>
         </div>
         `
