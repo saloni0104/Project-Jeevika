@@ -38,7 +38,7 @@ Backend Server is deployed using Heroku
 
 Watch the video to understand the complete working of the portal at "youtube link".
 
-## Authors
+## Contributors
 
 * Frontend: [Saloni Parekh](http://github.com/saloni0104)
 * Backend: [Riddhi Gupta](http://github.com/RiddhiGupta5)
