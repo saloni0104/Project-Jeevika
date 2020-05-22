@@ -1,7 +1,7 @@
 
 # Project Jeevika
 
-Jeevika is a website made to act as a platform of communication between the NGOs and the donors by bridging the gap between the two in dire times like these where lives of the underpriviledged have become extremely tough. 
+Jeevika is a website made to act as a platform of communication between the NGOs and the donors by bridging the gap between the two in dire times like these where lives of the underpriviledged have become extremely tough. Jeevika also helps the needy to get updated with the latest help drives around them by SMS. People can register their Phone Numbers with us very easily by just sending an SMS.
 
 ## Our Idea
 
@@ -16,7 +16,7 @@ Our aim at Jeevika is to support the prolonged struggle of the needy by providin
 
 ## Project Creation
 
-### At Frontend:
+### Frontend:
 
 1. Technical Stack Used: HTML, CSS, JAVASCRIPT
 2. Framework Used: Bootstrap
@@ -24,8 +24,10 @@ Our aim at Jeevika is to support the prolonged struggle of the needy by providin
 4. The Project can be run by opening the the index.html file leading to the home page
 
 
-### At Backend: 
+### Backend: 
 
+1. Technical Stack Used: Django, Heroku, Postgresql
+2. Editor Used: VS Code
 
 
 ### Deployment
@@ -46,5 +48,9 @@ Watch the video to understand the complete working of the portal at [Jeevika_vid
 ## Screenshot of the Home Page of the website
 
 ![homepage ss](https://user-images.githubusercontent.com/48960420/82667668-ef599480-9c55-11ea-8893-49971a7064df.png)
+
+<p align="center">
+	Made with :heart:
+</p>
 
 
