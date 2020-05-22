@@ -82,6 +82,12 @@
         height: 200px;
     }
   }
+
+  @media only screen and (min-height: 992px) {
+    .carousel-item{
+        height: 400px;
+    }
+  }
   
 
 .button{
