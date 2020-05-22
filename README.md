@@ -1,7 +1,7 @@
 
 # Project Jeevika
 
-Jeevika is a website made to act as a platform of communication between the NGOs and the donors by bridging the gap between the two in dire times like these where lives of the underpriviledged have become extremely tough. 
+Jeevika is a website made to act as a platform of communication between the NGOs and the donors by bridging the gap between the two in dire times like these where lives of the underpriviledged have become extremely tough. Jeevika also helps the needy to get updated with the latest help drives around them by SMS. People can register their Phone Numbers with us very easily by just sending an SMS.
 
 ## Our Idea
 
