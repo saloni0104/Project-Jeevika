@@ -29,6 +29,7 @@ Our aim at Jeevika is to support the prolonged struggle of the needy by providin
 1. Technical Stack Used: Django, Heroku, Postgresql
 2. Editor Used: VS Code
 
+Link to backend repo: https://github.com/RiddhiGupta5/project-jeevika-backend
 
 ### Deployment
 
