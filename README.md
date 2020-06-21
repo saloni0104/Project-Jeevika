@@ -1,5 +1,6 @@
 
-# Project Jeevika - A submission for 'Crack the Covid-19 Crisis’ – National Online Hackathon by NASSCOM, IBM and Beatest
+# Project Jeevika 
+### A submission for 'Crack the Covid-19 Crisis’ – National Online Hackathon by NASSCOM, IBM and Beatest
 
 
 Jeevika is a website made to act as a platform of communication between the NGOs and the donors by bridging the gap between the two to make the lives of the underpriviledged better. Jeevika also helps the needy to get updated with the latest help drives around them by SMS. People can register their Phone Numbers with us very easily by just sending an SMS.
