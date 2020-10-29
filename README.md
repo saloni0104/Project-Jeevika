@@ -1,5 +1,5 @@
 
-# Project Jeevika 
+# Project Jeevika ~ where actions meet compassion
 ### A submission for 'Crack the Covid-19 Crisis’ – National Online Hackathon by NASSCOM, IBM and Beatest
 
 
